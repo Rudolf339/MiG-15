@@ -1736,6 +1736,9 @@ neccessary to accelerate the engine to at least 6500 RPM.
     <MiG_15bis_bombable>
       <file>Aircraft/MiG-15/Nasal/bombable.nas</file>
     </MiG_15bis_bombable>
+		<damage>
+			<file>Aircraft/MiG-15/Nasal/damage.nas</file>
+		</damage>
   </nasal>
 
   <orientation>

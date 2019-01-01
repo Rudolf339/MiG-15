@@ -1,6 +1,6 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis  0.2 0.2 0.2  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "YellowMetal" rgb 0.767917 0.713857 0.354839 amb 0.2 0.2 0.2 emis  0.2 0.2 0.2  spec 0.6 0.6 0.6 shi 128 trans 0
+MATERIAL "YellowMetal" rgb 0.767917 0.713857 0.354839 amb 0.2 0.2 0.2 emis  1 1 1  spec 0.6 0.6 0.6 shi 128 trans 0
 MATERIAL "ac3dmat12.001" rgb 0.764808 0.333083 0.160145 amb 0.5 0.5 0.5 emis 0.2 0.2 0.2 spec 0.88339 0.409897 0.11015 shi 10 trans 0
 OBJECT world
 kids 2

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!-- MiG-15bis middle  gear config file - Victor Slavutinsky -->
+
+<PropertyList>
+
+  <path>MiG-15bis-Gears-middle-left-door.ac</path>
+
+  <animation>
+    <type>spin</type>
+    <object-name>FUS_NoseDoorLB</object-name>
+    <object-name>FUS_NoseDoorLS</object-name>
+    <property>one</property>
+    <factor>120</factor>
+    <center>
+      <x-m>-0.336</x-m>
+      <y-m>-0.623</y-m>
+      <z-m>0.115</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0.1</y>
+      <z>-0.1</z>
+    </axis>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Canopy.ac</path> 
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>CP_FCGlass</object-name>
+  </effect>
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>CP_RCGlass</object-name>
+  </effect>
+  <!-- There's ain't no shadow from the glass, man 
+
+but that animation makes bug in currnet FG state, so it's off
+
+<animation>
+<type>noshadow</type>
+<object-name>CP_FCGlass</object-name>
+<object-name>Cp_RCGlass</object-name>
+</animation>
+
+  -->
+
+  <!-- Canopy -->
+  <animation>
+    <type>select</type>
+    <object-name>CP_LLAOne</object-name>
+    <object-name>CP_LLATwo</object-name>
+    <object-name>CP_LLBox</object-name>
+    <object-name>CP_LLHBase</object-name>
+    <object-name>CP_LLHandle</object-name>
+    <object-name>CP_LLock</object-name>
+    <object-name>CP_RCFrame_0</object-name>
+    <object-name>CP_RCFrame_1</object-name>
+    <object-name>CP_RCGlass</object-name>
+    <object-name>CP_RLAOne</object-name>
+    <object-name>CP_RLATwo</object-name>
+    <object-name>CP_RLBox</object-name>
+    <object-name>CP_RLHBase</object-name>
+    <object-name>CP_RLHandle</object-name>
+    <object-name>CP_RLock</object-name>
+    <condition>
+      <equals>
+        <property>fdm/jsbsim/systems/canopy/torn</property>
+        <value>0</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>CP_LLAOne</object-name>
+    <object-name>CP_LLATwo</object-name>
+    <object-name>CP_LLBox</object-name>
+    <object-name>CP_LLHBase</object-name>
+    <object-name>CP_LLHandle</object-name>
+    <object-name>CP_LLock</object-name>
+    <object-name>CP_RCFrameOutUp</object-name>
+    <object-name>CP_RCFrame_0</object-name>
+    <object-name>CP_RCFrame_1</object-name>
+    <object-name>CP_RCGlass</object-name>
+    <object-name>CP_RLAOne</object-name>
+    <object-name>CP_RLATwo</object-name>
+    <object-name>CP_RLBox</object-name>
+    <object-name>CP_RLHBase</object-name>
+    <object-name>CP_RLHandle</object-name>
+    <object-name>CP_RLock</object-name>
+    <property>fdm/jsbsim/systems/canopy/pos</property>
+    <factor>0.74</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0.037</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>CP_LLAOne</object-name>
+    <object-name>CP_LLATwo</object-name>
+    <object-name>CP_LLBox</object-name>
+    <object-name>CP_LLHBase</object-name>
+    <object-name>CP_LLHandle</object-name>
+    <object-name>CP_LLock</object-name>
+    <object-name>CP_RCFrameOutUp</object-name>
+    <object-name>CP_RCFrame_0</object-name>
+    <object-name>CP_RCFrame_1</object-name>
+    <object-name>CP_RCGlass</object-name>
+    <object-name>CP_RLAOne</object-name>
+    <object-name>CP_RLATwo</object-name>
+    <object-name>CP_RLBox</object-name>
+    <object-name>CP_RLHBase</object-name>
+    <object-name>CP_RLHandle</object-name>
+    <object-name>CP_RLock</object-name>
+    <property>fdm/jsbsim/systems/canopy/pos</property>
+    <factor>-2</factor>
+    <center>
+      <x-m>0.013</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.015</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>CP_LLHBase</object-name>
+    <object-name>CP_LLHandle</object-name>
+    <object-name>CP_LLock</object-name>
+    <object-name>CP_RLHBase</object-name>
+    <object-name>CP_RLHandle</object-name>
+    <object-name>CP_RLock</object-name>
+    <property>fdm/jsbsim/systems/canopy/lock-pos</property>
+    <factor>30</factor>
+    <center>
+      <x-m>0.012</x-m>
+      <y-m>0</y-m>
+      <z-m>0.030</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>CP_LLHandle</object-name>
+    <object-name>CP_RLHandle</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/canopy/command")</script>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/canopy/command")</script>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList> 

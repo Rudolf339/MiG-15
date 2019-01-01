@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Ignitionbutton.ac</path> 
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>IGN_Button</object-name>
+<object-name>IGN_Bezel</object-name>
+<object-name>IGN_Safer</object-name>
+<object-name>IGN_Axle</object-name>
+<object-name>IGN_Base</object-name>
+<object-name>IGN_Bolts</object-name>
+<object-name>IGN_Message</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+  <animation>
+    <type>rotate</type>
+    <object-name>IGN_Safer</object-name>
+    <object-name>IGN_Axle</object-name>
+    <property>fdm/jsbsim/systems/ignitionbutton/safer-pos</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0.0</dep></entry>
+      <entry><ind>1</ind><dep>70.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.0</x-m>
+      <y-m>0.011</y-m>
+      <z-m>0.002</z-m>
+    </center>  
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>IGN_Button</object-name>
+    <property>fdm/jsbsim/systems/ignitionbutton/button-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>1.0</ind><dep>0.004</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>IGN_Safer</object-name>
+    <object-name>IGN_Base</object-name>
+    <object-name>IGN_Bolts</object-name>
+    <object-name>IGN_Axle</object-name>
+    <object-name>IGN_Button</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/engines/engine/starter-command</property>
+        <value>1</value>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/engines/engine/starter-command</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList> 

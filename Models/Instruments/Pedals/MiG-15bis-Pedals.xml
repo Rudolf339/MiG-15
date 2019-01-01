@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Pedals.ac</path> 
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>PD_LBBolt</object-name>
+<object-name>PD_LBFBolt</object-name>
+<object-name>PD_LBFGayka</object-name>
+<object-name>PD_LBScrew</object-name>
+<object-name>PD_LBTBolt</object-name>
+<object-name>PD_LBTOne</object-name>
+<object-name>PD_LBTTube</object-name>
+<object-name>PD_LBTTwo</object-name>
+<object-name>PD_LBTWasher</object-name>
+<object-name>PD_LBWasher</object-name>
+<object-name>PD_LBase</object-name>
+<object-name>PD_LPBOne</object-name>
+<object-name>PD_LPBTwo</object-name>
+<object-name>PD_LPScrew</object-name>
+<object-name>PD_LPStrap</object-name>
+<object-name>PD_LPedal</object-name>
+<object-name>PD_LRing</object-name>
+<object-name>PD_LTube</object-name>
+<object-name>PD_TubeOne</object-name>
+<object-name>PD_TubeTwo</object-name>
+<object-name>PD_Rod</object-name>
+
+<object-name>PD_RBBolt</object-name>
+<object-name>PD_RBFBolt</object-name>
+<object-name>PD_RBFGayka</object-name>
+<object-name>PD_RBScrew</object-name>
+<object-name>PD_RBWasher</object-name>
+<object-name>PD_RBase</object-name>
+<object-name>PD_RPBOne</object-name>
+<object-name>PD_RPBTwo</object-name>
+<object-name>PD_RPScrew</object-name>
+<object-name>PD_RPStrap</object-name>
+<object-name>PD_RPedal</object-name>
+<object-name>PD_RRing</object-name>
+<object-name>PD_RTube</object-name>
+<object-name>PD_RBTOne</object-name>
+<object-name>PD_RBTTwo</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>PD_LBBolt</object-name>
+    <object-name>PD_LBFBolt</object-name>
+    <object-name>PD_LBFGayka</object-name>
+    <object-name>PD_LBScrew</object-name>
+    <object-name>PD_LBWasher</object-name>
+    <object-name>PD_LBase</object-name>
+    <object-name>PD_LPBOne</object-name>
+    <object-name>PD_LPBTwo</object-name>
+    <object-name>PD_LPScrew</object-name>
+    <object-name>PD_LPStrap</object-name>
+    <object-name>PD_LPedal</object-name>
+    <object-name>PD_LRing</object-name>
+    <object-name>PD_LTube</object-name>
+    <object-name>PD_LBTOne</object-name>
+    <object-name>PD_LBTTwo</object-name>
+    <property>fdm/jsbsim/systems/pedals/shift-x</property>
+    <factor>1</factor>
+    <axis>
+      <x>1</x>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>PD_Rod</object-name>
+    <object-name>PD_LBTBolt</object-name>
+    <object-name>PD_LBTWasher</object-name>
+    <object-name>PD_LBTTube</object-name>
+    <property>fdm/jsbsim/systems/pedals/tubes-shift-rod-x</property>
+    <factor>1</factor>
+    <axis>
+      <x>1</x>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>PD_RBBolt</object-name>
+    <object-name>PD_RBFBolt</object-name>
+    <object-name>PD_RBFGayka</object-name>
+    <object-name>PD_RBScrew</object-name>
+    <object-name>PD_RBWasher</object-name>
+    <object-name>PD_RBase</object-name>
+    <object-name>PD_RPBOne</object-name>
+    <object-name>PD_RPBTwo</object-name>
+    <object-name>PD_RPScrew</object-name>
+    <object-name>PD_RPStrap</object-name>
+    <object-name>PD_RPedal</object-name>
+    <object-name>PD_RRing</object-name>
+    <object-name>PD_RTube</object-name>
+    <object-name>PD_RBTOne</object-name>
+    <object-name>PD_RBTTwo</object-name>
+    <property>fdm/jsbsim/systems/pedals/shift-x</property>
+    <factor>1</factor>
+    <axis>
+      <x>-1</x>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PD_TubeOne</object-name>
+    <property>fdm/jsbsim/systems/pedals/tubes-shift-angle</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.136</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PD_TubeTwo</object-name>
+    <property>fdm/jsbsim/systems/pedals/tubes-shift-angle</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.111</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PD_LBTOne</object-name>
+    <property>fdm/jsbsim/systems/pedals/tubes-shift-angle</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.136</x-m>
+      <y-m>-0.087</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PD_LBTTwo</object-name>
+    <property>fdm/jsbsim/systems/pedals/tubes-shift-angle</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.111</x-m>
+      <y-m>-0.087</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PD_RBTOne</object-name>
+    <property>fdm/jsbsim/systems/pedals/tubes-shift-angle</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.136</x-m>
+      <y-m>0.087</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PD_RBTTwo</object-name>
+    <property>fdm/jsbsim/systems/pedals/tubes-shift-angle</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.111</x-m>
+      <y-m>0.087</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+</PropertyList> 

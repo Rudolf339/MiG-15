@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!-- MiG-15bis right gear config file - Victor Slavutinsky -->
+
+<PropertyList>
+
+  <path>MiG-15bis-Gears-right-door-outer.ac</path>
+
+  <animation>
+    <type>spin</type>
+    <object-name>UC_MainR_DoorOB</object-name>
+    <object-name>UC_MainR_DoorOS</object-name>
+    <property>one</property>
+    <factor>120</factor>
+    <center>
+      <x-m>0.808</x-m>
+      <y-m>1.288</y-m>
+      <z-m>0.419</z-m>
+    </center>
+    <axis>
+      <x>0.1</x>
+      <y>1.0</y>
+      <z>0.1</z>
+    </axis>
+  </animation>
+
+</PropertyList>

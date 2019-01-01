@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Flapsvalve.ac</path> 
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>FV_Valve</object-name>
+<object-name>FV_Bolt</object-name>
+<object-name>FV_Axle</object-name>
+<object-name>FV_Handle</object-name>
+<object-name>FV_Message</object-name>
+<object-name>FV_Base</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+
+  <animation>
+    <type>select</type>
+    <object-name>FV_Message</object-name>
+    <condition>
+      <equals>
+        <property>sim/current-view/internal</property>
+        <value>true</value>     
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>FV_Valve</object-name>
+    <object-name>FV_Bolt</object-name>
+    <object-name>FV_Axle</object-name>
+    <object-name>FV_Handle</object-name>
+    <object-name>FV_Message</object-name>
+    <property>fdm/jsbsim/systems/flapsvalve/valve-pos</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-30.0</dep></entry>
+      <entry><ind>1</ind><dep>300.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>FV_Axle</object-name>
+    <object-name>FV_Handle</object-name>
+    <object-name>FV_Message</object-name>
+    <property>fdm/jsbsim/systems/flapsvalve/safer-pos</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0.0</dep></entry>
+      <entry><ind>1</ind><dep>120.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.010</x-m>
+      <y-m>-0.028</y-m>
+      <z-m>0.023</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FV_Handle</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/flapsvalve/safer-input", 1)</script>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/flapsvalve/safer-input")</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FV_Valve</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>fdm/jsbsim/systems/flapsvalve/valve-input</property>
+        <value>1</value>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>fdm/jsbsim/systems/flapsvalve/valve-input</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList> 

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!-- MiG-15bis middle  gear config file - Victor Slavutinsky -->
+
+<PropertyList>
+
+  <path>MiG-15bis-Gears-middle.ac</path>
+
+  <animation>
+    <type>spin</type>
+    <object-name>UC_Nose_ArmHub</object-name>
+    <object-name>UC_Nose_MainPost</object-name>
+    <object-name>UC_Nose_Axle</object-name>
+    <object-name>UC_Nose_Tyre</object-name>
+    <object-name>UC_Nose_MainPost</object-name>
+    <property>one</property>
+    <factor>30</factor>
+    <center>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>-0.1</x>
+      <y>1.0</y>
+      <z>-0.1</z>
+    </axis>
+  </animation>
+
+</PropertyList>

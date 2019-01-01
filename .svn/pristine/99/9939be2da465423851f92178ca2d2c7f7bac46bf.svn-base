@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Motpressmeter.ac</path> 
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>MP_Glass</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>MP_Needle</object-name>
+    <object-name>MP_Backplate</object-name>
+    <emission>
+      <factor-prop>systems/electrical-real/outputs/engine_control/volts-norm</factor-prop>
+      <red>0.222</red>
+      <green>0.212</green>
+      <blue>0.212</blue>
+    </emission>
+  </animation>
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>MP_Needle</object-name>
+<object-name>MP_Bezel</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+  <animation>
+    <type>rotate</type>
+    <object-name>MP_Needle</object-name>
+    <property>instrumentation/motormeter/fuel-flow-norm</property>
+    <interpolation> 
+      <entry><ind>0.0</ind><dep>57</dep></entry>
+      <entry><ind>1.0</ind><dep>302</dep></entry>
+    </interpolation> 
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0.0</z-m>
+    </center>  
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList> 

@@ -1,0 +1,407 @@
+<?xml version="1.0"?>
+
+<!--
+	Radio compass. For the MiG-15bis, but can be used in every JSB craft.
+	Author: Slavutinsky Victor
+-->
+
+<system>
+
+	<fileheader>
+		<author> Slavutinsky Victor </author>
+		<filecreationdate> 2010-10-04 </filecreationdate>
+		<version>$Revision: 1.00 $</version>
+		<description> Radio compass </description>
+	</fileheader>
+
+<!--	Note Nasal file Radiocopass.nas in Nasal directory
+	and Radiocompass, Radiocompassbox dir in Models/Instrumentation directory.
+	It's parts of instrument and gotta be added as explained in it.
+-->
+
+<!--	That must be aded to jsbsim aircraft file
+
+	<system file="Radiocompass">
+	</system>
+
+-->
+
+<!--	That must be aded to set file, better before aircraft Nasal file call
+
+	<fdm>
+		<jsbsim>
+			<systems>
+				<radiocompass>
+					<serviceable type="bool">1</serviceable>
+
+					<type-input type="float">0</type-input>
+					<type-input-mult type="float">0</type-input-mult>
+					<type-command type="float">0</type-command>
+					<type-pos type="float">0</type-pos>
+					<type-switch type="int">0</type-switch>
+
+					<band-input type="int">0</band-input>
+					<band-input-mult type="float">0</band-input-mult>
+					<band-command type="int">0</band-command>
+					<band-pos type="float">0</band-pos>
+					<band-switch type="int">0</band-switch>
+					<tg-or-tl-input type="bool">0</tg-or-tl-input>
+					<tg-or-tl-command type="bool">0</tg-or-tl-command>
+					<tg-or-tl-pos type="float">0</tg-or-tl-pos>
+					<tg-or-tl-switch type="bool">0</tg-or-tl-switch>
+					<lamp type="float">0</lamp>
+					<brightness type="float">0.75</brightness>
+					<loudness type="float">0.25</loudness>
+					<telegraph-loudness type="float">0.75</telegraph-loudness>
+					<telephone-loudness type="float">0.75</telephone-loudness>
+					<noise-loudness type="float">0.75</noise-loudness>
+					<degree type="float">0.0</degree>
+					<frequency type="float">0.0</frequency>
+					<wait-time type="float">0.0</wait-time>
+					<wait-degree-time type="float">0.0</wait-degree-time>
+					<band n="0">
+						<scale-shift type="float">1</scale-shift>
+						<scale-pos type="float">1</scale-pos>
+						<frequency type="float">150.0</frequency>
+						<low-frequency type="float">150.0</low-frequency>
+						<high-frequency type="float">310.0</high-frequency>
+					</band>
+					<band n="1">
+						<scale-shift type="float">0</scale-shift>
+						<scale-pos type="float">0</scale-pos>
+						<frequency type="float">310.0</frequency>
+						<low-frequency type="float">310.0</low-frequency>
+						<high-frequency type="float">640.0</high-frequency>
+					</band>
+					<band n="2">
+						<scale-shift type="float">0</scale-shift>
+						<scale-pos type="float">0</scale-pos>
+						<frequency type="float">640.0</frequency>
+						<low-frequency type="float">640.0</low-frequency>
+						<high-frequency type="float">1300.0</high-frequency>
+					</band>
+					<frequency-vern type="float">0.0</frequency-vern>
+					<frequency-vern-previous type="float">0.0</frequency-vern-previous>
+					<recieve-lamp type="float">0.0</recieve-lamp>
+					<recieve-quality type="float">0.0</recieve-quality>
+					<frame-speed type="float">0.5</frame-speed>
+					<frame-speed type="float">0.5</frame-speed>
+					<repeat-time type="float">0.0</repeat-time>
+				</radiocompass>
+			</systems>
+		</jsbsim>
+	</fdm>
+
+	<nasal>
+		<Radiocompass>
+			<file>Aircraft/MiG-15/Nasal/Radiocompass.nas</file>
+			<script>start_radiocompass();</script>
+		</Radiocompass>
+	</nasal>
+
+-->
+
+	<channel name="Radiocompass">
+
+<!-- Type handle -->
+
+		<switch name="calculations/radiocompass/type-allowed">
+			<default value="systems/radiocompass/type-command"/>
+			<test logic="AND" value="systems/radiocompass/type-input">
+				systems/radiocompass/serviceable eq 1
+			</test>
+			<output>systems/radiocompass/type-command</output>
+		</switch>
+
+		<switch name="calculations/radiocompass/type-not-allowed">
+			<default value="systems/radiocompass/type-input"/>
+			<test logic="AND" value="systems/radiocompass/type-command">
+				systems/radiocompass/serviceable eq 0
+			</test>
+			<output>systems/radiocompass/type-input</output>
+		</switch>
+
+		<fcs_function name="calculations/radiocompass/type-input-mult">
+		<function>
+			<product>
+				<property>systems/radiocompass/type-input</property>
+				<value>0.333333</value>
+			</product>
+		</function>
+			<output>systems/radiocompass/type-input-mult</output>
+		</fcs_function>
+
+		<kinematic name="calculations/radiocompass/type-pos">
+			<input>systems/radiocompass/type-input-mult</input>
+			<traverse>
+			<setting>
+				<position>0</position>
+				<time>0</time>
+			</setting>
+			<setting>
+				<position>1</position>
+				<time>0.1</time>
+			</setting>
+			<setting>
+				<position>2</position>
+				<time>0.1</time>
+			</setting>
+			<setting>
+				<position>3</position>
+				<time>0.1</time>
+			</setting>
+			</traverse>
+			<output>systems/radiocompass/type-pos</output>
+		</kinematic>
+
+		<switch name="calculations/radiocompass/type-switch">
+			<default value="systems/radiocompass/type-switch"/>
+			<test logic="AND" value="0">
+				systems/radiocompass/type-pos lt 0.1
+			</test>
+			<test logic="AND" value="1">
+				systems/radiocompass/type-pos ge 0.9
+				systems/radiocompass/type-pos lt 1.1
+			</test>
+			<test logic="AND" value="2">
+				systems/radiocompass/type-pos ge 1.9
+				systems/radiocompass/type-pos lt 2.1
+			</test>
+			<test logic="AND" value="3">
+				systems/radiocompass/type-pos ge 2.9
+			</test>
+			<output>systems/radiocompass/type-switch</output>
+		</switch>
+
+<!-- Band handle -->
+
+		<switch name="calculations/radiocompass/band-allowed">
+			<default value="systems/radiocompass/band-command"/>
+			<test logic="AND" value="systems/radiocompass/band-input">
+				systems/radiocompass/serviceable eq 1
+			</test>
+			<output>systems/radiocompass/band-command</output>
+		</switch>
+
+		<switch name="calculations/radiocompass/band-not-allowed">
+			<default value="systems/radiocompass/band-input"/>
+			<test logic="AND" value="systems/radiocompass/band-command">
+				systems/radiocompass/serviceable eq 0
+			</test>
+			<output>systems/radiocompass/band-input</output>
+		</switch>
+
+		<fcs_function name="calculations/radiocompass/band-input-mult">
+		<function>
+			<product>
+				<property>systems/radiocompass/band-input</property>
+				<value>0.333333</value>
+			</product>
+		</function>
+			<output>systems/radiocompass/band-input-mult</output>
+		</fcs_function>
+
+		<kinematic name="calculations/radiocompass/band-pos">
+			<input>systems/radiocompass/band-input-mult</input>
+			<traverse>
+			<setting>
+				<position>0</position>
+				<time>0</time>
+			</setting>
+			<setting>
+				<position>1</position>
+				<time>0.1</time>
+			</setting>
+			<setting>
+				<position>2</position>
+				<time>0.1</time>
+			</setting>
+			<setting>
+				<position>3</position>
+				<time>0.1</time>
+			</setting>
+			</traverse>
+			<output>systems/radiocompass/band-pos</output>
+		</kinematic>
+
+		<switch name="calculations/radiocompass/band-switch">
+			<default value="systems/radiocompass/band-switch"/>
+			<test logic="AND" value="0">
+				systems/radiocompass/band-pos lt 0.1
+			</test>
+			<test logic="AND" value="1">
+				systems/radiocompass/band-pos ge 0.9
+				systems/radiocompass/band-pos lt 1.1
+			</test>
+			<test logic="AND" value="2">
+				systems/radiocompass/band-pos ge 1.9
+				systems/radiocompass/band-pos lt 2.1
+			</test>
+			<test logic="AND" value="3">
+				systems/radiocompass/band-pos ge 2.9
+			</test>
+			<output>systems/radiocompass/band-switch</output>
+		</switch>
+
+		<fcs_function name="calculations/radiocompass/band[0]/scale-shift">
+		<function>
+			<difference>
+				<value>1.0</value>
+				<abs>
+					<difference>
+						<value>0.0</value>
+						<property>systems/radiocompass/band-pos</property>
+					</difference>
+				</abs>
+			</difference>
+		</function>
+			<output>systems/radiocompass/band[0]/scale-shift</output>
+		</fcs_function>
+
+		<switch name="calculations/radiocompass/band[0]/scale-pos">
+			<default value="systems/radiocompass/band[0]/scale-shift"/>
+			<test logic="AND" value="0">
+				systems/radiocompass/band[0]/scale-shift lt 0.0
+			</test>
+			<test logic="AND" value="1">
+				systems/radiocompass/band[0]/scale-shift gt 1.0
+			</test>
+			<output>systems/radiocompass/band[0]/scale-pos</output>
+		</switch>
+
+		<fcs_function name="calculations/radiocompass/band[1]/scale-shift">
+		<function>
+			<difference>
+				<value>1.0</value>
+				<abs>
+					<difference>
+						<value>1.0</value>
+						<property>systems/radiocompass/band-pos</property>
+					</difference>
+				</abs>
+			</difference>
+		</function>
+			<output>systems/radiocompass/band[1]/scale-shift</output>
+		</fcs_function>
+
+		<switch name="calculations/radiocompass/band[1]/scale-pos">
+			<default value="systems/radiocompass/band[1]/scale-shift"/>
+			<test logic="AND" value="0">
+				systems/radiocompass/band[1]/scale-shift lt 0.0
+			</test>
+			<test logic="AND" value="1">
+				systems/radiocompass/band[1]/scale-shift gt 1.0
+			</test>
+			<output>systems/radiocompass/band[1]/scale-pos</output>
+		</switch>
+
+		<fcs_function name="calculations/radiocompass/band[2]/scale-shift">
+		<function>
+			<difference>
+				<value>1.0</value>
+				<abs>
+					<difference>
+						<value>2.0</value>
+						<property>systems/radiocompass/band-pos</property>
+					</difference>
+				</abs>
+			</difference>
+		</function>
+			<output>systems/radiocompass/band[2]/scale-shift</output>
+		</fcs_function>
+
+		<switch name="calculations/radiocompass/band[2]/scale-pos">
+			<default value="systems/radiocompass/band[2]/scale-shift"/>
+			<test logic="AND" value="0">
+				systems/radiocompass/band[2]/scale-shift lt 0.0
+			</test>
+			<test logic="AND" value="1">
+				systems/radiocompass/band[2]/scale-shift gt 1.0
+			</test>
+			<output>systems/radiocompass/band[2]/scale-pos</output>
+		</switch>
+
+<!-- tg-or-tl handle -->
+
+		<switch name="calculations/radiocompass/tg-or-tl-allowed">
+			<default value="systems/radiocompass/tg-or-tl-command"/>
+			<test logic="AND" value="systems/radiocompass/tg-or-tl-input">
+				systems/radiocompass/serviceable eq 1
+			</test>
+			<output>systems/radiocompass/tg-or-tl-command</output>
+		</switch>
+
+		<kinematic name="calculations/radiocompass/tg-or-tl-pos">
+			<input>systems/radiocompass/tg-or-tl-command</input>
+			<traverse>
+			<setting>
+				<position>0</position>
+				<time>0</time>
+			</setting>
+			<setting>
+				<position>1</position>
+				<time>0.1</time>
+			</setting>
+			</traverse>
+			<output>systems/radiocompass/tg-or-tl-pos</output>
+		</kinematic>
+
+		<switch name="calculations/radiocompass/tg-or-tl-not-allowed">
+			<default value="systems/radiocompass/tg-or-tl-input"/>
+			<test logic="AND" value="systems/radiocompass/tg-or-tl-command">
+				systems/radiocompass/serviceable eq 0
+			</test>
+			<output>systems/radiocompass/tg-or-tl-input</output>
+		</switch>
+
+		<switch name="calculations/radiocompass/tg-or-tl-switch">
+			<default value="systems/radiocompass/tg-or-tl-switch"/>
+			<test logic="AND" value="1">
+				systems/radiocompass/tg-or-tl-pos ge 0.5
+			</test>
+			<test logic="AND" value="0">
+				systems/radiocompass/tg-or-tl-pos lt 0.5
+			</test>
+			<output>systems/radiocompass/tg-or-tl-switch</output>
+		</switch>
+
+<!-- click -->
+
+		<switch name="calculations/radiocompass/click">
+			<default value="systems/sounds/click/on"/>
+			<test logic="AND" value="1">
+				systems/radiocompass/type-pos ge 0.25
+				systems/radiocompass/type-pos le 0.75
+				systems/sounds/click/on == 0
+			</test>
+			<test logic="AND" value="1">
+				systems/radiocompass/type-pos ge 1.25
+				systems/radiocompass/type-pos le 1.75
+				systems/sounds/click/on == 0
+			</test>
+			<test logic="AND" value="1">
+				systems/radiocompass/type-pos ge 2.25
+				systems/radiocompass/type-pos le 2.75
+				systems/sounds/click/on == 0
+			</test>
+			<test logic="AND" value="1">
+				systems/radiocompass/band-pos ge 0.25
+				systems/radiocompass/band-pos le 0.75
+				systems/sounds/click/on == 0
+			</test>
+			<test logic="AND" value="1">
+				systems/radiocompass/band-pos ge 1.25
+				systems/radiocompass/band-pos le 1.75
+				systems/sounds/click/on == 0
+			</test>
+			<test logic="AND" value="1">
+				systems/radiocompass/tg-or-tl-pos ge 0.25
+				systems/radiocompass/tg-or-tl-pos le 0.75
+				systems/sounds/click/on == 0
+			</test>
+			<output>systems/sounds/click/on</output>
+		</switch>
+
+	</channel>
+
+</system>

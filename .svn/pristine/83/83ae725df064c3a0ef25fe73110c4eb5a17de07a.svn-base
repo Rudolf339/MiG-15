@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Radioaltimeter.ac</path> 
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>RA_Glass</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>RA_Needle</object-name>
+    <object-name>RA_Backplate</object-name>
+    <object-name>RA_Foreplate</object-name>
+    <emission>
+      <factor-prop>fdm/jsbsim/systems/radioaltimeter/on</factor-prop>
+      <red>0.222</red>
+      <green>0.212</green>
+      <blue>0.212</blue>
+    </emission>
+  </animation>
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>RA_Needle</object-name>
+<object-name>RA_Backplate</object-name>
+<object-name>RA_Foreplate</object-name>
+<object-name>RA_Bezel</object-name>
+<object-name>RA_VOnoff</object-name>
+<object-name>RA_VDiapazone</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RA_Needle</object-name>
+    <property>fdm/jsbsim/systems/radioaltimeter/indicated-alt</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>120.0</ind><dep>240.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>  
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RA_VOnoff</object-name>
+    <property>fdm/jsbsim/systems/radioaltimeter/power-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>1.0</ind><dep>60.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.037</y-m>
+      <z-m>-0.038</z-m>
+    </center>  
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RA_VDiapazone</object-name>
+    <property>fdm/jsbsim/systems/radioaltimeter/diapazone-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-45</dep></entry>
+      <entry><ind>1.0</ind><dep>45.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.038</y-m>
+      <z-m>0.038</z-m>
+    </center>  
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RA_VOnoff</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/radioaltimeter/power-input")</script>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/radioaltimeter/power-input")</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RA_VDiapazone</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/radioaltimeter/diapazone-input")</script>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/radioaltimeter/diapazone-input")</script>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList> 

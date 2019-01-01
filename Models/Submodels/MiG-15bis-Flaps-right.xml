@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!-- MiG-15bis right flap config file - Victor Slavutinsky -->
+
+<PropertyList>
+
+  <path>MiG-15bis-Flaps-right.ac</path>
+
+  <animation>
+    <type>spin</type>
+    <object-name>WNG_FlapRUp</object-name>
+    <object-name>WNG_FlapRDown</object-name>
+    <property>one</property>
+    <factor>100</factor>
+    <center>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>0.2</x>
+      <y>1.0</y>
+      <z>0.1</z>
+    </axis>
+  </animation>
+
+</PropertyList>

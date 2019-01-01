@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<!--
+	Tachometer. For the MiG-15bis, but can be used in every JSB craft,
+	if it calculates rpm by n2.
+	Author: Slavutinsky Victor
+-->
+
+<system>
+
+	<fileheader>
+		<author> Slavutinsky Victor </author>
+		<filecreationdate> 2010-10-03 </filecreationdate>
+		<version>$Revision: 1.00 $</version>
+		<description> Tachometer </description>
+	</fileheader>
+
+<!--	That must be aded to set file
+
+	<property value="0">systems/tachometer/on</property>
+	<property value="1">systems/tachometer/serviceable</property>
+
+-->
+
+	<channel name="Tachometer">
+
+		<switch name="calculations/tachometer/stored-rpm">
+			<default value="0"/>
+			<test logic="OR" value="systems/tachometer/stored-rpm">
+				systems/tachometer/on == 0
+				systems/tachometer/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/tachometer/input-rpm">
+				systems/tachometer/on == 1
+				systems/tachometer/serviceable == 1
+			</test>
+			<output>systems/tachometer/stored-rpm</output>
+		</switch>
+
+		<switch name="calculations/tachometer/indicated-rpm">
+			<default value="0"/>
+			<test logic="OR" value="systems/tachometer/stored-rpm">
+				systems/tachometer/on == 0
+				systems/tachometer/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/tachometer/input-rpm">
+				systems/tachometer/on == 1
+				systems/tachometer/serviceable == 1
+			</test>
+			<output>systems/tachometer/indicated-rpm</output>
+		</switch>
+
+	</channel>
+
+</system>

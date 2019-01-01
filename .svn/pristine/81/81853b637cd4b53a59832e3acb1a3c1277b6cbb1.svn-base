@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>configuration_dialog</name>
+  <modal>false</modal>
+  <default-padding>3</default-padding>
+  <draggable>true</draggable>
+  <layout>vbox</layout>
+  <group>
+    <layout>hbox</layout>
+    <text>
+      <label>Rudder input exponent</label>
+    </text>
+    <slider>
+      <property>/sim/configuration/rudder_input_exponent</property>
+      <live>true</live>
+      <min>1</min>
+      <max>3</max>
+      <step>0.1</step>
+      <pref-height>20</pref-height>
+      <pref-width>120</pref-width>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </slider>
+    <text>
+      <label>9.9</label>
+      <format>%1.1f</format>
+      <property>/sim/configuration/rudder_input_exponent</property>
+      <live>true</live>
+    </text>
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+  </group>
+  <group>
+    <layout>vbox</layout>
+    <text>
+      <label>NOTE: If using separate rudder pedals, a value of at least 2.0 is recommended.</label>
+    </text>
+    <text>
+      <label>This will be multiplied by the "power"-setting in the Help->Joystick Configuration</label>
+    </text>
+    <text>
+      <label>menu, so set this to 1 if you're already happy with the setting.</label>
+    </text>
+  </group>
+  <group>
+    <layout>hbox</layout>
+    <checkbox>
+      <live>true</live>
+      <property>/sim/model/show_gunsight</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/show_gunsight</property>
+      </binding>
+    </checkbox>
+    <text>
+      <label>Gunsight</label>
+    </text>
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+  </group>
+  <group>
+    <layout>hbox</layout>
+    <checkbox>
+      <live>true</live>
+      <property>/sim/model/show_Magcompass</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/show_Magcompass</property>
+      </binding>
+    </checkbox>
+    <text>
+      <label>Magnetic compass</label>
+    </text>
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+  </group>
+  <group>
+    <layout>hbox</layout>
+    <checkbox>
+      <live>true</live>
+      <property>/fdm/jsbsim/tanks/attached</property>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.toggle_drop_tanks()</script>
+      </binding>
+    </checkbox>
+    <text>
+      <label>Drop-tanks</label>
+    </text>
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+  </group>
+  <group>
+    <layout>hbox</layout>
+    <checkbox>
+      <live>true</live>
+      <property>/sim/model/show_stick</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/show_stick</property>
+      </binding>
+    </checkbox>
+    <text>
+      <label>Flight stick</label>
+    </text>
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+  </group>
+  <group>
+    <layout>hbox</layout>
+    <checkbox>
+      <live>true</live>
+      <property>/sim/configuration/throttle_crack</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/configuration/throttle_crack</property>
+      </binding>
+    </checkbox>
+    <text>
+      <label>Throttle crack sound effect</label>
+    </text>
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+  </group>
+  <group>
+    <layout>hbox</layout>
+    <checkbox>
+      <live>true</live>
+      <property>/sim/configuration/use_std_atmosphere</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/configuration/use_std_atmosphere</property>
+      </binding>
+    </checkbox>
+    <text>
+      <label>Use the '1976 U.S. Standard Atmosphere' and zero wind conditions</label>
+    </text>
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+  </group>
+  <group>
+    <layout>hbox</layout>
+    <checkbox>
+      <live>true</live>
+      <property>/sim/configuration/show_touchdown_speeds</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/configuration/show_touchdown_speeds</property>
+      </binding>
+    </checkbox>
+    <text>
+      <label>Show vertical speeds at touchdown</label>
+    </text>
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+  </group>
+  <group>
+    <layout>hbox</layout>
+    <checkbox>
+      <live>true</live>
+      <property>/listeners/aircraft-break/enabled</property>
+      <binding><command>property-toggle</command><property>listeners/aircraft-break/enabled</property> </binding>
+      <binding><command>property-toggle</command><property>listeners/gear-break/enabled</property>     </binding>
+      <binding><command>property-toggle</command><property>processes/aircraft-break/enabled</property> </binding>
+      <binding><command>property-toggle</command><property>processes/engine/failures-enabled</property></binding>
+      <binding><command>property-toggle</command><property>processes/gear-break/enabled</property>     </binding>
+    </checkbox>
+    <text>
+      <label>Realistic aircraft failures</label>
+    </text>
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+  </group>
+  <group>
+    <layout>hbox</layout>
+    <button>
+      <legend>Close</legend>
+      <key>Esc</key>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
+
+</PropertyList>

@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+
+<!--
+	Altimeter. For the MiG-15bis, but can be used in every JSB craft.
+	Author: Slavutinsky Victor
+-->
+
+<system>
+
+	<fileheader>
+		<author> Slavutinsky Victor </author>
+		<filecreationdate> 2010-10-03 </filecreationdate>
+		<version>$Revision: 1.00 $</version>
+		<description> Altimeter </description>
+	</fileheader>
+
+<!--	That must be aded to set file
+
+-->
+	<channel name="Altimeter">
+
+		<!-- Offset -->
+
+		<!-- If not broken then shown value stored -->
+
+		<switch name="calculations/altimeter/offset-stored-torr">
+			<default value="0"/>
+			<test logic="OR" value="systems/altimeter/offset-stored-torr">
+				systems/altimeter/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/altimeter/offset-torr">
+				systems/altimeter/serviceable == 1
+			</test>
+			<output>systems/altimeter/offset-stored-torr</output>
+		</switch>
+
+		<!-- If broken then set value to stored -->
+
+		<switch name="calculations/altimeter/offset-torr">
+			<default value="0"/>
+			<test logic="OR" value="systems/altimeter/offset-stored-torr">
+				systems/altimeter/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/altimeter/offset-torr">
+				systems/altimeter/serviceable == 1
+			</test>
+			<output>systems/altimeter/offset-torr</output>
+		</switch>
+
+		<!-- Torr to ft -->
+
+		<fcs_function name="calculations/altimeter/offset-ft">
+		<function>
+			<product>
+				<property>systems/altimeter/offset-torr</property>
+				<value>37.4</value>
+			</product>
+		</function>
+			<output>systems/altimeter/offset-ft</output>
+		</fcs_function>
+
+		<!-- Set shown altitude to real in ~5sec -->
+
+		<fcs_function name="calculations/altimeter/altitude-drift-ft">
+		<function>
+			<sum>
+				<product>
+					<property>systems/altimeter/altitude-ft</property>
+					<value>-0.2</value>
+				</product>
+				<product>
+					<property>position/h-sl-ft</property>
+					<value>0.2</value>
+				</product>
+			</sum>
+		</function>
+			<output>systems/altimeter/altitude-drift-ft</output>
+		</fcs_function>
+
+		<!-- If switched off at all then goes to make it remain in stored position after switch on -->
+
+		<fcs_function name="calculations/altimeter/altitude-to-stored-ft">
+		<function>
+			<sum>
+				<product>
+					<property>systems/altimeter/altitude-ft</property>
+					<value>-1.0</value>
+				</product>
+				<product>
+					<property>systems/altimeter/altitude-stored-ft</property>
+					<value>1.0</value>
+				</product>
+			</sum>
+		</function>
+			<output>systems/altimeter/altitude-to-stored-ft</output>
+		</fcs_function>
+
+		<!-- If no power then moves to remain in stored position
+			else it no button pressed then drift else return to current "zero"-->
+
+		<switch name="calculations/altimeter/altitude-input-ft">
+			<default value="0"/>
+			<test logic="AND" value="systems/altimeter/altitude-to-stored-ft">
+				systems/altimeter/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/altimeter/altitude-drift-ft">
+				systems/altimeter/serviceable == 1
+			</test>
+			<output>systems/altimeter/altitude-input-ft</output>
+		</switch>
+
+		<!-- Proportional, Integrational and Derivative response. If kp=0, ki=1 and kd=0 then
+		 input rate of 1 increases the integrator output value of 1*input per second. -->
+
+		<pid name="calculations/altimeter/altitude-ft">
+			<input>systems/altimeter/altitude-input-ft</input>
+			<kp>0.0</kp>
+			<ki>1.0</ki>
+			<kd>0.0</kd>
+			<output>systems/altimeter/altitude-ft</output>
+		</pid>
+
+		<!-- If switched on then shown value stored -->
+
+		<switch name="calculations/altimeter/altitude-stored-ft">
+			<default value="0"/>
+			<test logic="AND" value="systems/altimeter/altitude-stored-ft">
+				systems/altimeter/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/altimeter/altitude-ft">
+				systems/altimeter/serviceable == 1
+			</test>
+			<output>systems/altimeter/altitude-stored-ft</output>
+		</switch>
+
+		<!-- If broken then stored value indicated -->
+
+		<switch name="calculations/altimeter/altitude-resulted-ft">
+			<default value="0"/>
+			<test logic="AND" value="systems/altimeter/altitude-stored-ft">
+				systems/altimeter/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/altimeter/altitude-ft">
+				systems/altimeter/serviceable == 1
+			</test>
+			<output>systems/altimeter/altitude-resulted-ft</output>
+		</switch>
+
+		<!-- Altitude with offset -->
+
+		<fcs_function name="calculations/altimeter/altitude-indicated-ft">
+		<function>
+			<sum>
+				<property>systems/altimeter/altitude-resulted-ft</property>
+				<property>systems/altimeter/offset-ft</property>
+			</sum>
+		</function>
+			<output>systems/altimeter/altitude-indicated-ft</output>
+		</fcs_function>
+
+
+	</channel>
+
+</system>

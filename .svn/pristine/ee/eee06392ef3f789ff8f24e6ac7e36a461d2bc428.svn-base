@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Gearcontrol.ac</path> 
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>GC_Base</object-name>
+<object-name>GC_Fix</object-name>
+<object-name>GC_Switch</object-name>
+<object-name>GC_Bolts</object-name>
+<object-name>GC_Up</object-name>
+<object-name>GC_Down22</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>GC_Switch</object-name>
+    <property>fdm/jsbsim/systems/gearcontrol/lever-pos</property>
+    <factor>-45</factor>
+    <center>
+      <x-m>-0.007272</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.000529</z-m>
+    </center>
+    <axis>
+      <x>-0.1</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>GC_Fix</object-name>
+    <property>fdm/jsbsim/systems/gearcontrol/safer-pos</property>
+    <factor>0.015</factor>
+    <axis>
+      <x>0.0</x>
+      <y>-1</y>
+      <z>-0.1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>GC_Up</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/gear/gear-down</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/gear/gear-down</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>GC_Down</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/gear/gear-down</property>
+        <step>1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/gear/gear-down</property>
+        <step>1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+</PropertyList> 

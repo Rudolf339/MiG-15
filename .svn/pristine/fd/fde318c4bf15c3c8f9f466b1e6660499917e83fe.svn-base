@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <!--
+      The aerobatic livery was inspired by images I found here:
+      [https://forum.warthunder.com/index.php?/topic/194985-kamufl%C3%A1%C5%BE-mig-15bis-6sbolp-slia%C4%8D-20-v%C3%BDro%C4%8D%C3%AD-snp-2981964/].
+      The page says that this livery was used during an air show at the
+      Sliac airbase on August 29, 1964. I didn't investigate the accuracy of
+      this information. -AZ-
+  -->
+  <sim>
+    <model>
+      <livery>
+	<name type="string">CSSR_aerobatic</name>
+	<index type="int">2</index>
+	<txt_0>Liveries/CSSR_aerobatic/Main.png</txt_0>
+	<txt_1>Liveries/CSSR_aerobatic/Tail_Antennas.png</txt_1>
+	<txt_2>Liveries/CSSR_aerobatic/Intake.png</txt_2>
+	<txt_3>Liveries/CSSR_aerobatic/NosedoorL.png</txt_3>
+	<txt_4>Liveries/CSSR_aerobatic/NosedoorR.png</txt_4>
+	<txt_5>Liveries/CSSR_aerobatic/SBDoor.png</txt_5>
+	<txt_6>Liveries/CSSR_aerobatic/SBDoorL.png</txt_6>
+	<txt_7>Liveries/CSSR_aerobatic/SBDoorR.png</txt_7>
+	<txt_8>Liveries/CSSR_aerobatic/HullBackDown.png</txt_8>
+	<txt_9>Liveries/CSSR_aerobatic/HullBackUp.png</txt_9>
+	<txt_10>Liveries/CSSR_aerobatic/WingDown.png</txt_10>
+	<txt_11>Liveries/CSSR_aerobatic/WingUp.png</txt_11>
+	<txt_12>Liveries/CSSR_aerobatic/AileronL.png</txt_12>
+	<txt_13>Liveries/CSSR_aerobatic/AileronR.png</txt_13>
+	<txt_14>Liveries/CSSR_aerobatic/FlapL.png</txt_14>
+	<txt_15>Liveries/CSSR_aerobatic/FlapR.png</txt_15>
+	<txt_16>Liveries/CSSR_aerobatic/Trimmer.png</txt_16>
+	<txt_17>Liveries/CSSR_aerobatic/Canopy_0.png</txt_17>
+	<txt_18>Liveries/CSSR_aerobatic/Canopy_1.png</txt_18>
+	<txt_19>Liveries/CSSR_aerobatic/Fueltank.png</txt_19>
+      </livery>
+    </model>
+  </sim>
+</PropertyList>

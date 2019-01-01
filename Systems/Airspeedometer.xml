@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<!--
+	Airspeedometer. For the MiG-15bis, but can be used in every JSB craft.
+	Author: Slavutinsky Victor
+-->
+
+<system>
+
+	<fileheader>
+		<author> Slavutinsky Victor </author>
+		<filecreationdate> 2010-10-03 </filecreationdate>
+		<version>$Revision: 1.00 $</version>
+		<description> Airspeedometer </description>
+	</fileheader>
+
+<!--	That must be aded to set file
+
+	<property value="0">systems/airspeedometer/on</property>
+	<property value="1">systems/airspeedometer/serviceable</property>
+
+-->
+
+	<channel name="Airspeedometer">
+
+		<switch name="calculations/airspeedometer/stored-kt">
+			<default value="0"/>
+			<test logic="OR" value="systems/airspeedometer/stored-kt">
+				systems/airspeedometer/on == 0
+				systems/airspeedometer/serviceable == 0
+			</test>
+			<test logic="AND" value="velocities/vc-kts">
+				systems/airspeedometer/on == 1
+				systems/airspeedometer/serviceable == 1
+			</test>
+			<output>systems/airspeedometer/stored-kt</output>
+		</switch>
+
+		<switch name="calculations/airspeedometer/indicated-kt">
+			<default value="0"/>
+			<test logic="OR" value="systems/airspeedometer/stored-kt">
+				systems/airspeedometer/on == 0
+				systems/airspeedometer/serviceable == 0
+			</test>
+			<test logic="AND" value="velocities/vc-kts">
+				systems/airspeedometer/on == 1
+				systems/airspeedometer/serviceable == 1
+			</test>
+			<output>systems/airspeedometer/indicated-kt</output>
+		</switch>
+
+	</channel>
+
+</system>

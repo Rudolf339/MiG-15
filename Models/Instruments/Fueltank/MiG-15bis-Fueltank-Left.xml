@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Fueltank.ac</path> 
+
+  <animation>
+    <type>select</type>
+    <object-name>TK_HUp</object-name>
+    <object-name>TK_HDown</object-name>
+    <object-name>TK_Wing</object-name>
+    <condition>
+      <property>/fdm/jsbsim/tanks/attached_0</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>TK_HUp</object-name>
+    <object-name>TK_HDown</object-name>
+    <object-name>TK_Wing</object-name>
+    <property>instrumentation/drop-tank/one</property>
+    <factor>3.324</factor>
+    <axis>
+      <x>1</x>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>TK_HUp</object-name>
+    <object-name>TK_HDown</object-name>
+    <object-name>TK_Wing</object-name>
+    <property>instrumentation/drop-tank/one</property>
+    <factor>-2.685</factor>
+    <axis>
+      <y>1</y>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>TK_HUp</object-name>
+    <object-name>TK_HDown</object-name>
+    <object-name>TK_Wing</object-name>
+    <property>instrumentation/drop-tank/one</property>
+    <!-- <factor>-0.468</factor> -->
+    <factor>-0.34</factor>
+    <axis>
+      <z>1</z>
+    </axis>
+  </animation>
+
+</PropertyList>

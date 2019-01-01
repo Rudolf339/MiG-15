@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!-- MiG-15bis left flap config file - Victor Slavutinsky -->
+
+<PropertyList>
+
+  <path>MiG-15bis-Canopy.ac</path>
+
+  <animation>
+    <type>spin</type>
+    <object-name>CP_RCFrame</object-name>
+    <object-name>CP_RCGlass</object-name>
+    <property>one</property>
+    <factor>30</factor>
+    <center>
+      <x-m>0.38</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.25</z-m>
+    </center>
+    <axis>
+      <x>-0.05</x>
+      <y>1.0</y>
+      <z>-0.05</z>
+    </axis>
+  </animation>
+
+</PropertyList>

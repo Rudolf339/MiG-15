@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Flapslamp.ac</path> 
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>FL_Glass</object-name>
+  </effect>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>FL_Lamp</object-name>
+    <object-name>FL_Glass</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>systems/electrical-real/bus</property>
+          <value>0</value>
+        </greater-than>
+        <not>
+          <property>fdm/jsbsim/fcs/flap-torn</property>
+        </not>
+        <greater-than>
+          <property>surface-positions/flap-pos-norm</property>
+          <value>0.1</value>
+        </greater-than>
+        <less-than>
+          <property>surface-positions/flap-pos-norm</property>
+          <value>0.9</value>
+        </less-than>
+      </and>
+    </condition>
+    <emission>
+      <factor>0.5</factor>
+      <red>0.9</red>
+      <green>0.1</green>
+      <blue>0.1</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>FL_Lamp</object-name>
+    <object-name>FL_Glass</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>systems/electrical-real/bus</property>
+          <value>0</value>
+        </greater-than>
+        <not>
+          <property>fdm/jsbsim/fcs/flap-torn</property>
+        </not>
+        <greater-than-equals>
+          <property>surface-positions/flap-pos-norm</property>
+          <value>0.9</value>
+        </greater-than-equals>
+      </and>
+    </condition>
+    <emission>
+      <factor>1</factor>
+      <red>0.9</red>
+      <green>0.1</green>
+      <blue>0.1</blue>
+    </emission>
+  </animation>
+
+</PropertyList> 

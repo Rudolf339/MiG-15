@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Motormeter.ac</path> 
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>Mot_Glass</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>Mot_Needle</object-name>
+    <object-name>Mot_LNeedle</object-name>
+    <object-name>Mot_RNeedle</object-name>
+    <object-name>Mot_Bezel</object-name>
+    <object-name>Mot_Backplate</object-name>
+    <object-name>Mot_Foreplate</object-name>
+    <object-name>Mot_LPlate</object-name>
+    <object-name>Mot_RPlate</object-name>
+    <emission>
+      <factor-prop>systems/electrical-real/outputs/engine_control/volts-norm</factor-prop>
+      <red>0.222</red>
+      <green>0.212</green>
+      <blue>0.212</blue>
+    </emission>
+  </animation>
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>GT_Needle</object-name>
+<object-name>GT_Backplate</object-name>
+<object-name>GT_Foreplate</object-name>
+<object-name>GT_LBlocker</object-name>
+<object-name>GT_LBCord</object-name>
+<object-name>GT_LGayka</object-name>
+<object-name>GT_RBlocker</object-name>
+<object-name>GT_RBCord</object-name>
+<object-name>GT_RGayka</object-name>
+<object-name>GT_Protplate</object-name>
+<object-name>GT_Bezel</object-name>
+<object-name>GT_Gayka</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Mot_Needle</object-name>
+    <property>instrumentation/motormeter/fuel-flow-norm</property>
+    <interpolation> 
+      <entry><ind>0.0000</ind><dep>46</dep></entry>
+      <entry><ind>1.0</ind><dep>315</dep></entry>
+    </interpolation> 
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0.008</z-m>
+    </center>  
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Mot_LNeedle</object-name>
+    <property>instrumentation/motormeter/oil-pressure-norm</property>
+    <interpolation> 
+      <entry><ind>0.0000</ind><dep>15</dep></entry>
+      <entry><ind>1.0</ind><dep>165</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.018713</y-m>
+      <z-m>-0.012073</z-m>
+    </center>  
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Mot_RNeedle</object-name>
+    <property>instrumentation/motormeter/oil-temperature-norm</property>
+    <interpolation> 
+      <entry><ind>0.0000</ind><dep>35</dep></entry>
+      <entry><ind>1.0</ind><dep>143</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.01791</y-m>
+      <z-m>-0.012073</z-m>
+    </center>  
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList> 

@@ -1,0 +1,1063 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <!--
+
+That code gotta be puttet somethere in craft model file or file of panel of it.
+Change path and set offset as needed.
+
+<model>
+<path>Aircraft/MiG-15/Models/Instruments/Radiocompassbox/MiG-15bis-Radiocompassbox.xml</path>
+<offsets>
+<x-m>0.0</x-m>
+<y-m>0.0</y-m>
+<z-m>0.0</z-m>
+<pitch-deg>0.0</pitch-deg>
+<roll-deg>40</roll-deg>
+</offsets>
+</model>
+
+  -->
+
+  <path>MiG-15bis-Radiocompassbox.ac</path> 
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>RC_FIGlass</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>RC_OGlass</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>RC_RGlass</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>RC_RIGlass</object-name>
+  </effect>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>RC_RINeedle</object-name>
+    <object-name>RC_RIBackplate</object-name>
+    <object-name>RC_FICPlate</object-name>
+    <object-name>RC_FP150x310</object-name>
+    <object-name>RC_FP310x640</object-name>
+    <object-name>RC_FP640x1300</object-name>
+    <object-name>RC_FBackplate</object-name>
+    <emission>
+      <factor-prop>fdm/jsbsim/systems/radiocompass/lamp</factor-prop>
+      <red>0.222</red>
+      <green>0.212</green>
+      <blue>0.212</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>RC_OGlass</object-name>
+    <object-name>RC_OLamp</object-name>
+    <emission>
+      <factor-prop>fdm/jsbsim/systems/radiocompass/lamp</factor-prop>
+      <red>0.005</red>
+      <green>0.222</green>
+      <blue>0.005</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>RC_RGlass</object-name>
+    <object-name>RC_RLamp</object-name>
+    <emission>
+      <factor-prop>fdm/jsbsim/systems/radiocompass/recieve-lamp</factor-prop>
+      <red>0.005</red>
+      <green>0.222</green>
+      <blue>0.005</blue>
+    </emission>
+  </animation>
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>RC_BVDown</object-name>
+<object-name>RC_BVUp</object-name>
+<object-name>RC_BVern</object-name>
+<object-name>RC_Base</object-name>
+<object-name>RC_FICPlate</object-name>
+<object-name>RC_FICover</object-name>
+<object-name>RC_FICUp</object-name>
+<object-name>RC_FIGlass</object-name>
+<object-name>RC_FIVBDown</object-name>
+<object-name>RC_FIVBUp</object-name>
+<object-name>RC_FIVDown</object-name>
+<object-name>RC_FIVRod</object-name>
+<object-name>RC_FIVUp</object-name>
+<object-name>RC_FIVern</object-name>
+<object-name>RC_FLeft</object-name>
+<object-name>RC_FP130x310</object-name>
+<object-name>RC_FP310x640</object-name>
+<object-name>RC_FP640x1300</object-name>
+<object-name>RC_FRight</object-name>
+<object-name>RC_FSDown</object-name>
+<object-name>RC_FSUp</object-name>
+<object-name>RC_FSelector</object-name>
+<object-name>RC_FVern</object-name>
+<object-name>RC_LVDown</object-name>
+<object-name>RC_LVUp</object-name>
+<object-name>RC_LVern</object-name>
+<object-name>RC_OBase</object-name>
+<object-name>RC_OGlass</object-name>
+<object-name>RC_OLamp</object-name>
+<object-name>RC_RIBackplate</object-name>
+<object-name>RC_RIBezel</object-name>
+<object-name>RC_RIGlass</object-name>
+<object-name>RC_RINeedle</object-name>
+<object-name>RC_RIProtlplate</object-name>
+<object-name>RC_RLBase</object-name>
+<object-name>RC_RLGlass</object-name>
+<object-name>RC_RLamp</object-name>
+<object-name>RC_TG</object-name>
+<object-name>RC_TGVDown</object-name>
+<object-name>RC_TGVern</object-name>
+<object-name>RC_TGVUp</object-name>
+<object-name>RC_TL</object-name>
+<object-name>RC_TLTGSAxle</object-name>
+<object-name>RC_TLTGSBase</object-name>
+<object-name>RC_TLTGSwitch</object-name>
+<object-name>RC_TLVDown</object-name>
+<object-name>RC_TLVUp</object-name>
+<object-name>RC_TLVern</object-name>
+<object-name>RC_TSDown</object-name>
+<object-name>RC_TLVUp</object-name>
+<object-name>RC_TLVern</object-name>
+<object-name>RC_TSDown</object-name>
+<object-name>RC_TSUp</object-name>
+<object-name>RC_TSelector</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_TSelector</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/type-pos</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-45</dep></entry>
+      <entry><ind>1</ind><dep>-15</dep></entry>
+      <entry><ind>2</ind><dep>15</dep></entry>
+      <entry><ind>3</ind><dep>45</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.151</x-m>
+      <y-m>0.132</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_TSDown</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/type-input</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>3</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/type-input</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>3</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_TSUp</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/type-input</property>
+        <step>1</step>
+        <min>0</min>
+        <max>3</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/type-input</property>
+        <step>1</step>
+        <min>0</min>
+        <max>3</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_FSelector</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/band-pos</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-90</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+      <entry><ind>2</ind><dep>90</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.059</x-m>
+      <y-m>0.063</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_FICPlate</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/band-pos</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-90</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+      <entry><ind>2</ind><dep>90</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.059</x-m>
+      <y-m>0.063</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_FSDown</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/band-input</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>2</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/band-input</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>2</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_FSUp</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/band-input</property>
+        <step>1</step>
+        <min>0</min>
+        <max>2</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/band-input</property>
+        <step>1</step>
+        <min>0</min>
+        <max>2</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>RC_FP150x310</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/band[0]/scale-pos</property>
+    <interpolation>
+      <entry><ind>1.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.0</ind><dep>0.015</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1.0</x>
+      <y>0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_FP150x310</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/band[0]/frequency</property>
+    <interpolation>
+      <entry><ind>150</ind><dep>0</dep></entry>
+      <entry><ind>200</ind><dep>50</dep></entry>
+      <entry><ind>250</ind><dep>100</dep></entry>
+      <entry><ind>300</ind><dep>150</dep></entry>
+      <entry><ind>350</ind><dep>200</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.059</x-m>
+      <y-m>0.063</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>RC_FP310x640</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/band[1]/scale-pos</property>
+    <interpolation>
+      <entry><ind>1.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.0</ind><dep>0.015</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1.0</x>
+      <y>0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_FP310x640</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/band[1]/frequency</property>
+    <interpolation>
+      <entry><ind>300</ind><dep>0</dep></entry>
+      <entry><ind>400</ind><dep>50</dep></entry>
+      <entry><ind>500</ind><dep>100</dep></entry>
+      <entry><ind>600</ind><dep>150</dep></entry>
+      <entry><ind>700</ind><dep>200</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.059</x-m>
+      <y-m>0.063</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>RC_FP640x1300</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/band[2]/scale-pos</property>
+    <interpolation>
+      <entry><ind>1.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.0</ind><dep>0.015</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1.0</x>
+      <y>0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_FP640x1300</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/band[2]/frequency</property>
+    <interpolation>
+      <entry><ind>650</ind><dep>-50</dep></entry>
+      <entry><ind>700</ind><dep>0</dep></entry>
+      <entry><ind>800</ind><dep>50</dep></entry>
+      <entry><ind>900</ind><dep>100</dep></entry>
+      <entry><ind>1000</ind><dep>150</dep></entry>
+      <entry><ind>1100</ind><dep>200</dep></entry>
+      <entry><ind>1200</ind><dep>250</dep></entry>
+      <entry><ind>1300</ind><dep>250</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.059</x-m>
+      <y-m>0.063</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_FIVBUp</object-name>
+    <object-name>RC_FIVBDown</object-name>
+    <object-name>RC_FIVRod</object-name>
+    <object-name>RC_FIVern</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/frequency-vern</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.148</x-m>
+      <y-m>0.064</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_FIVern</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/frequency-vern</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.118</x-m>
+      <y-m>0.064</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_FIVUp</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/frequency-vern</property>
+        <step>1</step>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/frequency-vern</property>
+        <step>1</step>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_FIVDown</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/frequency-vern</property>
+        <step>-1</step>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/frequency-vern</property>
+        <step>-1</step>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_RINeedle</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/recieve-quality</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>83.3</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.056</x-m>
+      <y-m>0.160</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_TLTGSwitch</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/tg-or-tl-pos</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-45</dep></entry>
+      <entry><ind>1</ind><dep>45</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.059</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_TG</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>fdm/jsbsim/systems/radiocompass/tg-or-tl-input</property>
+        <value>0</value>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>fdm/jsbsim/systems/radiocompass/tg-or-tl-input</property>
+        <value>0</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_TL</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>fdm/jsbsim/systems/radiocompass/tg-or-tl-input</property>
+        <value>1</value>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>fdm/jsbsim/systems/radiocompass/tg-or-tl-input</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_FVern</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/frame-speed</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>-45</dep></entry>
+      <entry><ind>1</ind><dep>45</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.131</x-m>
+      <y-m>0.167</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_FLeft</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/frame-speed</property>
+        <step>-0.02</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/frame-speed</property>
+        <step>-0.02</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_FRight</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/frame-speed</property>
+        <step>0.02</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/frame-speed</property>
+        <step>0.02</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_BVern</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/brightness</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>360</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.027</x-m>
+      <y-m>0.115</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_BVDown</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/brightness</property>
+        <step>-0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/brightness</property>
+        <step>-0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_BVUp</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/brightness</property>
+        <step>0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/brightness</property>
+        <step>0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_LVern</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/loudness</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>360</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.100</x-m>
+      <y-m>0.115</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_LVDown</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/loudness</property>
+        <step>-0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/loudness</property>
+        <step>-0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_LVUp</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/loudness</property>
+        <step>0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/loudness</property>
+        <step>0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_TGVern</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/telegraph-loudness</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>360</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.019</x-m>
+      <y-m>0.018</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_TGVDown</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/telegraph-loudness</property>
+        <step>-0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/telegraph-loudness</property>
+        <step>-0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_TGVUp</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/telegraph-loudness</property>
+        <step>0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/telegraph-loudness</property>
+        <step>0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RC_TLVern</object-name>
+    <property>fdm/jsbsim/systems/radiocompass/telephone-loudness</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>360</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.102</x-m>
+      <y-m>0.018</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>-1.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_TLVDown</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/telephone-loudness</property>
+        <step>-0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/telephone-loudness</property>
+        <step>-0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>RC_TLVUp</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/telephone-loudness</property>
+        <step>0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/telephone-loudness</property>
+        <step>0.02</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList> 

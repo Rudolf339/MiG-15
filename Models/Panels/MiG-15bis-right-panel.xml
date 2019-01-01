@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-right-panel.ac</path>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Rightswitchpanel/MiG-15bis-Rightswitchpanel.xml</path>
+    <offsets>
+      <x-m>1.777</x-m>
+      <y-m>0.447</y-m>
+      <z-m>0.384</z-m>
+      <roll-deg>42.0</roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Gearvalvepressuremeter/MiG-15bis-Gearvalvepressuremeter.xml</path>
+    <offsets>
+      <x-m>1.620</x-m>
+      <y-m>0.360</y-m>
+      <z-m>0.297</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Gearvalve/MiG-15bis-Gearvalve.xml</path>
+    <offsets>
+      <x-m>1.690</x-m>
+      <y-m>0.330</y-m>
+      <z-m>0.297</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Gearpressuremeter/MiG-15bis-Gearpressuremeter.xml</path>
+    <offsets>
+      <x-m>1.740</x-m>
+      <y-m>0.380</y-m>
+      <z-m>0.297</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Flapsvalvepressuremeter/MiG-15bis-Flapsvalvepressuremeter.xml</path>
+    <offsets>
+      <x-m>1.820</x-m>
+      <y-m>0.360</y-m>
+      <z-m>0.297</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Flapsvalve/MiG-15bis-Flapsvalve.xml</path>
+    <offsets>
+      <x-m>1.890</x-m>
+      <y-m>0.330</y-m>
+      <z-m>0.297</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Flapspressuremeter/MiG-15bis-Flapspressuremeter.xml</path>
+    <offsets>
+      <x-m>1.940</x-m>
+      <y-m>0.380</y-m>
+      <z-m>0.297</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Radiocompassbox/MiG-15bis-Radiocompassbox.xml</path>
+    <offsets>
+      <x-m>1.983</x-m>
+      <y-m>0.340</y-m>
+      <z-m>0.297</z-m>
+      <pitch-deg>0.0</pitch-deg>
+      <roll-deg>40</roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Radiocompassbox/RC_Scalemark.xml</path>
+    <offsets>
+      <x-m>2.015</x-m>
+      <y-m>0.3882</y-m>
+      <z-m>0.3374</z-m>
+      <pitch-deg>0.0</pitch-deg>
+      <roll-deg>40</roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Trimmer/MiG-15bis-Trimmer.xml</path>
+    <offsets>
+      <x-m>2.05</x-m>
+      <y-m>0.360</y-m>
+      <z-m>0.22</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+</PropertyList> 

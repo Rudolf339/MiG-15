@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <sim>
+    <model>
+      <livery>
+        <name type="string">USSR_211</name>
+        <index type="int">1</index>
+        <txt_0>Liveries/USSR_211/Main_211.png</txt_0>
+        <txt_1>Liveries/USSR_211/Tail_Antennas_211.png</txt_1>
+        <txt_2>Liveries/USSR_211/black.png</txt_2>
+        <txt_3>Liveries/USSR_211/grey.png</txt_3>
+        <txt_4>Liveries/USSR_211/grey.png</txt_4>
+        <txt_5>Liveries/USSR_211/SBDoor.png</txt_5>
+        <txt_6>Liveries/USSR_211/grey.png</txt_6>
+        <txt_7>Liveries/USSR_211/grey.png</txt_7>
+        <txt_8>Liveries/USSR_211/grey.png</txt_8>
+        <txt_9>Liveries/USSR_211/grey.png</txt_9>
+        <txt_10>Liveries/USSR_211/WingDown.png</txt_10>
+        <txt_11>Liveries/USSR_211/WingUp.png</txt_11>
+        <txt_12>Liveries/USSR_211/grey.png</txt_12>
+        <txt_13>Liveries/USSR_211/grey.png</txt_13>
+        <txt_14>Liveries/USSR_211/grey.png</txt_14>
+        <txt_15>Liveries/USSR_211/grey.png</txt_15>
+        <txt_16>Liveries/USSR_211/grey.png</txt_16>
+        <txt_17>Liveries/USSR_211/grey.png</txt_17>
+        <txt_18>Liveries/USSR_211/grey.png</txt_18>
+        <txt_19>Liveries/USSR_211/Fueltank.png</txt_19>
+      </livery>
+    </model>
+  </sim>
+</PropertyList>

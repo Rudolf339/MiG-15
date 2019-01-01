@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Flapscontrol.ac</path> 
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>FLC_Lever</object-name>
+<object-name>FLC_LRing</object-name>
+<object-name>FLC_Base</object-name>
+<object-name>FLC_LBase</object-name>
+<object-name>FLC_Bolts</object-name>
+<object-name>FLC_Holder</object-name>
+<object-name>FLC_Fix</object-name>
+<object-name>FLC_Message</object-name>
+<object-name>FLC_Up</object-name>
+<object-name>FLC_Neutral</object-name>
+<object-name>FLC_Middle</object-name>
+<object-name>FLC_Down</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>FLC_Lever</object-name>
+    <object-name>FLC_LBase</object-name>
+    <object-name>FLC_LRing</object-name>
+    <object-name>FLC_Fix</object-name>
+    <property>fdm/jsbsim/systems/flapscontrol/lever-pos</property>
+    <interpolation>
+      <entry><ind>-1.0</ind><dep>-36.96</dep></entry>
+      <entry><ind>0.0</ind><dep>-12.25</dep></entry>
+      <entry><ind>0.36</ind><dep>12.25</dep></entry>
+      <entry><ind>1.0</ind><dep>36.96</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.085</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>FLC_Fix</object-name>
+    <property>fdm/jsbsim/systems/flapscontrol/fix-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-0.004</dep></entry>
+      <entry><ind>1.0</ind><dep>0.004</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1.0</x>
+      <y>0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FLC_Neutral</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/flight/flaps</property>
+        <value>0</value>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/flight/flaps</property>
+        <value>0</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FLC_Middle</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/flight/flaps</property>
+        <value>0.36</value>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/flight/flaps</property>
+        <value>0.36</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FLC_Down</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/flight/flaps</property>
+        <value>1</value>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/flight/flaps</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList>

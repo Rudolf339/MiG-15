@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Leftswitchpanel.ac</path> 
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>EBC_Glass</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>LSP_DGlass</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>LSP_DMGlass</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>LSP_UGlass</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>LSP_UMGlass</object-name>
+  </effect>
+
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>LSP_Base</object-name>
+<object-name>LSP_Backpanel</object-name>
+<object-name>LSP_LShield</object-name>
+<object-name>LSP_UShield</object-name>
+<object-name>LSP_DMShield</object-name>
+<object-name>LSP_DShield</object-name>
+<object-name>IGNT_Switch</object-name>
+<object-name>IGNT_SForeplate</object-name>
+<object-name>IGNT_Message</object-name>
+<object-name>PUC_Switch</object-name>
+<object-name>PUC_SForeplate</object-name>
+<object-name>PUC_Message</object-name>
+<object-name>EBC_Switch</object-name>
+<object-name>EBC_SForeplate</object-name>
+<object-name>EBC_Message</object-name>
+<object-name>IGN_Switch</object-name>
+<object-name>IGN_SForeplate</object-name>
+<object-name>IGN_Message</object-name>
+<object-name>PUTT_Switch</object-name>
+<object-name>PUTT_SForeplate</object-name>
+<object-name>PUTT_Message</object-name>
+<object-name>EC_Switch</object-name>
+<object-name>EC_SForeplate</object-name>
+<object-name>EC_Message</object-name>
+<object-name>EBC_LBase</object-name>
+<object-name>EBC_LMessage</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+
+  <animation>
+    <type>material</type>
+    <object-name>EBC_Lamp</object-name>
+    <object-name>EBC_Glass</object-name>
+    <emission>
+      <factor-prop>systems/electrical-real/outputs/isolation-lamp/volts-norm</factor-prop>
+      <red>0.9</red>
+      <green>0.1</green>
+      <blue>0.1</blue>
+    </emission>
+  </animation>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>IGNT_Switch</object-name>
+    <property>fdm/jsbsim/systems/leftpanel/ignition-type-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>45.0</dep></entry>
+      <entry><ind>1.0</ind><dep>-45.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.093</x-m>
+      <y-m>0.017</y-m>
+      <z-m>0.0</z-m>
+    </center>  
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PUC_Switch</object-name>
+    <property>fdm/jsbsim/systems/leftpanel/pump-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>45.0</dep></entry>
+      <entry><ind>1.0</ind><dep>-45.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.022</x-m>
+      <y-m>-0.014</y-m>
+      <z-m>0.0</z-m>
+    </center>  
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EBC_Switch</object-name>
+    <property>fdm/jsbsim/systems/leftpanel/isolation-valve-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>45.0</dep></entry>
+      <entry><ind>1.0</ind><dep>-45.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.022</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </center>  
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>IGN_Switch</object-name>
+    <property>fdm/jsbsim/systems/leftpanel/ignition-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>45.0</dep></entry>
+      <entry><ind>1.0</ind><dep>-45.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.022</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </center>  
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PUTT_Switch</object-name>
+    <property>fdm/jsbsim/systems/leftpanel/third-tank-pump-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>45.0</dep></entry>
+      <entry><ind>1.0</ind><dep>-45.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.053</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </center>  
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EC_Switch</object-name>
+    <property>fdm/jsbsim/systems/leftpanel/engine-control-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>45.0</dep></entry>
+      <entry><ind>1.0</ind><dep>-45.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.053</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </center>  
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>IGNT_Message</object-name>
+    <object-name>IGNT_Switch</object-name>
+    <object-name>IGNT_SForeplate</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/ignition-type-input")</script>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/ignition-type-input")</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>PUC_SBase</object-name>
+    <object-name>PUC_Switch</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/pump-input")</script>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/pump-input")</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>EBC_SBase</object-name>
+    <object-name>EBC_Switch</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/isolation-valve-input")</script>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/isolation-valve-input")</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>IGN_SBase</object-name>
+    <object-name>IGN_Switch</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/ignition-input")</script>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/ignition-input")</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>PUTT_SBase</object-name>
+    <object-name>PUTT_Switch</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/third-tank-pump-input")</script>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/third-tank-pump-input")</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>EC_SBase</object-name>
+    <object-name>EC_Switch</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/engine-control-input")</script>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>nasal</command>
+        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/leftpanel/engine-control-input")</script>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList> 

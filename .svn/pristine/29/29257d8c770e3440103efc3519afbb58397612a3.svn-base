@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- MiG-15bis left gear config file - Victor Slavutinsky -->
+
+<PropertyList>
+
+  <path>MiG-15bis-Gears-left.ac</path>
+
+  <animation>
+    <type>spin</type>
+    <object-name>UC_MainL_ArmHub</object-name>
+    <object-name>UC_MainL_Strut</object-name>
+    <object-name>UC_MainL_CStUp</object-name>
+    <object-name>UC_MainL_CStLow</object-name>
+    <object-name>UC_MainL_Axle</object-name>
+    <object-name>UC_MainL_Tyre</object-name>
+    <property>one</property>
+    <factor>20</factor>
+    <center>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>-0.2</x>
+      <y>1.0</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+
+</PropertyList>

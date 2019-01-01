@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-panel.ac</path> 
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Oxypressmeter/MiG-15bis-Oxypressmeter.xml</path>
+    <offsets>
+      <x-m>1.554</x-m>
+      <y-m>-0.275</y-m>
+      <z-m>0.518</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Magcompass/MiG-15bis-Magcompass.xml</path>
+    <offsets>
+      <x-m>1.578</x-m>
+      <y-m>-0.175</y-m>
+      <z-m>0.704</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Headsight/MiG-15bis-Headsight.xml</path>
+    <offsets>
+      <x-m>1.545</x-m>
+      <y-m>0</y-m>
+      <z-m>0.672</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Flapslamp/MiG-15bis-Flapslamp.xml</path>
+    <offsets>
+      <x-m>1.554</x-m>
+      <y-m>-0.264</y-m>
+      <z-m>0.570</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Gearcontrol/MiG-15bis-Gearcontrol.xml</path>
+    <offsets>
+      <x-m>1.554</x-m>
+      <y-m>-0.276</y-m>
+      <z-m>0.415</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Gearindicator/MiG-15bis-Gearindicator.xml</path>
+    <offsets>
+      <x-m>1.554</x-m>
+      <y-m>-0.300</y-m>
+      <z-m>0.324</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Airspeedometer/MiG-15bis-Airspeedometer.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>-0.173</y-m>
+      <z-m>0.537</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Gearlamp/MiG-15bis-Gearlamp.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>-0.126</y-m>
+      <z-m>0.590</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Marklamp/MiG-15bis-Marklamp.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>-0.115</y-m>
+      <z-m>0.461</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Altimeter/MiG-15bis-Altimeter.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>-0.174</y-m>
+      <z-m>0.436</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Radioaltimeter/MiG-15bis-Radioaltimeter.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>-0.176</y-m>
+      <z-m>0.338</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Horizon/MiG-15bis-Horizon.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>-0.054</y-m>
+      <z-m>0.541</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Chronometer/MiG-15bis-Chronometer.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>-0.056</y-m>
+      <z-m>0.418</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/LowerPanel/MiG-15bis-LowerPanel.xml</path>
+    <offsets>
+      <x-m>1.552</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.200</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Turnometer/MiG-15bis-Turnometer.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>-0.052</y-m>
+      <z-m>0.321</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/VertSpeedometer/MiG-15bis-VertSpeedometer.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.062</y-m>
+      <z-m>0.56aa0</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Fuellamp/MiG-15bis-Fuellamp.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.100</y-m>
+      <z-m>0.500</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Generatorlamp/MiG-15bis-Generatorlamp.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.004</y-m>
+      <z-m>0.442</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Fuelometer/MiG-15bis-Fuelometer.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.062</y-m>
+      <z-m>0.436</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Machometer/MiG-15bis-Machometer.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.067</y-m>
+      <z-m>0.338</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Ignitionlamp/MiG-15bis-Ignitionlamp.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.150</y-m>
+      <z-m>0.607</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Radiocompass/MiG-15bis-Radiocompass.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.180</y-m>
+      <z-m>0.542</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Gyrocompass/MiG-15bis-Gyrocompass.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.180</y-m>
+      <z-m>0.449</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Motormeter/MiG-15bis-Motormeter.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.180</y-m>
+      <z-m>0.334</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Tachometer/MiG-15bis-Tachometer.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.272</y-m>
+      <z-m>0.538</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Gastermometer/MiG-15bis-Gastermometer.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.278</y-m>
+      <z-m>0.438</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Motpressmeter/MiG-15bis-Motpressrmeter.xml</path>
+    <offsets>
+      <x-m>1.558</x-m>
+      <y-m>0.272</y-m>
+      <z-m>0.352</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Manometer/MiG-15bis-Manometer.xml</path>
+    <offsets>
+      <x-m>1.554</x-m>
+      <y-m>0.386</y-m>
+      <z-m>0.347</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Voltampermeter/MiG-15bis-Voltampermeter.xml</path>
+    <offsets>
+      <x-m>1.554</x-m>
+      <y-m>0.386</y-m>
+      <z-m>0.440</z-m>
+      <pitch-deg>0.0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Stick/MiG-15bis-Stick.xml</path>
+    <offsets>
+      <x-m>1.709</x-m>
+      <y-m>0.0</y-m>
+      <z-m>-0.055</z-m>
+      <pitch-deg>10</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Pedals/MiG-15bis-Pedals.xml</path>
+    <offsets>
+      <x-m>1.300</x-m>
+      <y-m>0.0</y-m>
+      <z-m>-0.002</z-m>
+      <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/MiG-15/Models/Instruments/Gearhandles/MiG-15bis-Gearhandles.xml</path>
+  </model>
+
+</PropertyList> 

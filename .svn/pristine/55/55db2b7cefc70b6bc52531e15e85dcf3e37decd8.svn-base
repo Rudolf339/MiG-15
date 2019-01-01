@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+
+<!--
+	Gyro compass. For the MiG-15bis, but can be used in every JSB craft.
+	Author: Slavutinsky Victor
+-->
+
+<system>
+
+	<fileheader>
+		<author> Slavutinsky Victor </author>
+		<filecreationdate> 2010-10-03 </filecreationdate>
+		<version>$Revision: 1.00 $</version>
+		<description> Gyro compass </description>
+	</fileheader>
+
+<!--	That must be aded to set file
+
+-->
+	<channel name="Gyrocompass">
+
+		<!-- Button-->
+
+		<switch name="calculations/gyrocompass/button-allowed">
+			<default value="systems/gyrocompass/button-command"/>
+			<test logic="AND" value="systems/gyrocompass/button-input">
+				systems/gyrocompass/serviceable eq 1
+			</test>
+			<output>systems/gyrocompass/button-command</output>
+		</switch>
+
+		<kinematic name="calculations/gyrocompass/button-pos">
+			<input>systems/gyrocompass/button-command</input>
+			<traverse>
+			<setting>
+				<position>0</position>
+				<time>0</time>
+			</setting>
+			<setting>
+				<position>1</position>
+				<time>0.2</time>
+			</setting>
+			</traverse>
+			<output>systems/gyrocompass/button-pos</output>
+		</kinematic>
+
+		<switch name="calculations/gyrocompass/button-not-allowed">
+			<default value="systems/gyrocompass/button-input"/>
+			<test logic="AND" value="systems/gyrocompass/button-command">
+				systems/gyrocompass/serviceable eq 0
+			</test>
+			<output>systems/gyrocompass/button-input</output>
+		</switch>
+
+		<switch name="calculations/gyrocompass/button-switch">
+			<default value="systems/gyrocompass/button-switch"/>
+			<test logic="AND" value="1">
+				systems/gyrocompass/button-pos ge 0.5
+			</test>
+			<test logic="AND" value="0">
+				systems/gyrocompass/button-pos lt 0.5
+			</test>
+			<output>systems/gyrocompass/button-switch</output>
+		</switch>
+
+		<!-- click -->
+
+		<switch name="calculations/gyrocompass/click">
+			<default value="systems/sounds/click/on"/>
+			<test logic="AND" value="1">
+				systems/gyrocompass/button-pos ge 0.25
+				systems/gyrocompass/button-pos le 0.75
+				systems/sounds/click/on == 0
+			</test>
+			<output>systems/sounds/click/on</output>
+		</switch>
+
+		<!-- Offset -->
+
+		<!-- If not broken then shown value stored -->
+
+		<switch name="calculations/gyrocompass/offset-stored-deg">
+			<default value="0"/>
+			<test logic="OR" value="systems/gyrocompass/offset-stored-deg">
+				systems/gyrocompass/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/gyrocompass/offset-input-deg">
+				systems/gyrocompass/serviceable == 1
+			</test>
+			<output>systems/gyrocompass/offset-stored-deg</output>
+		</switch>
+
+		<!-- If switched then stored value indicated -->
+
+		<switch name="calculations/gyrocompass/offset-deg">
+			<default value="0"/>
+			<test logic="OR" value="systems/gyrocompass/offset-stored-deg">
+				systems/gyrocompass/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/gyrocompass/offset-input-deg">
+				systems/gyrocompass/serviceable == 1
+			</test>
+			<output>systems/gyrocompass/offset-deg</output>
+		</switch>
+
+		<!-- heading of gyrocompass-->
+
+		<!--Drift if switched on and heading faster than 10deg/sec or switched on and button is pressed-->
+
+		<!-- 10deg\sec=10*pi/180rad-->
+
+		<switch name="calculations/gyrocompass/heading-great-drift">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				velocities/r-rad_sec ge 0.1745 
+				velocities/r-rad_sec le -0.1745
+			</test>
+			<output>systems/gyrocompass/heading-great-drift</output>
+		</switch>
+
+		<!-- If button pressed then set drift to 0 to with speed=half_of_drirt/sec -->
+
+		<!-- But add bigger turn disturbance -->
+
+		<fcs_function name="calculations/gyrocompass/heading-zero-return-rad">
+		<function>
+			<sum>
+				<product>
+					<property>systems/gyrocompass/heading-zero-rad</property>
+					<value>-0.5</value>
+				</product>
+				<product>
+					<property>velocities/r-rad_sec</property>
+					<value>-2.0</value>
+				</product>
+			</sum>
+		</function>
+			<output>systems/gyrocompass/heading-zero-return-rad</output>
+		</fcs_function>
+
+		<!-- If not then set setdrift to 0 slowly and add smaller disturbance -->
+
+		<fcs_function name="calculations/gyrocompass/heading-zero-drift-rad">
+		<function>
+			<sum>
+				<product>
+					<property>systems/gyrocompass/heading-zero-rad</property>
+					<value>-0.01</value>
+				</product>
+				<product>
+					<property>velocities/r-rad_sec</property>
+					<value>-0.2</value>
+				</product>
+			</sum>
+		</function>
+			<output>systems/gyrocompass/heading-zero-drift-rad</output>
+		</fcs_function>
+
+		<!-- If switched off at all then goes to make it remain in stored position after switch on -->
+
+		<fcs_function name="calculations/gyrocompass/heading-zero-stored-rad">
+		<function>
+			<sum>
+				<product>
+					<property>systems/gyrocompass/heading-stored-rad</property>
+					<value>-1.0</value>
+				</product>
+				<product>
+					<property>systems/gyrocompass/heading-zero-rad</property>
+					<value>-1.0</value>
+				</product>
+			</sum>
+		</function>
+			<output>systems/gyrocompass/heading-zero-stored-rad</output>
+		</fcs_function>
+
+		<!-- If no power then moves to remain in stored position
+			else it no button pressed then drift else return to current "zero"-->
+
+		<switch name="calculations/gyrocompass/heading-zero-input-rad">
+			<default value="0"/>
+			<test logic="OR" value="systems/gyrocompass/heading-zero-stored-rad">
+				systems/gyrocompass/on == 0
+				systems/gyrocompass/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/gyrocompass/heading-zero-drift-rad">
+				systems/gyrocompass/on == 1
+				systems/gyrocompass/serviceable == 1
+				systems/gyrocompass/button-switch == 0
+			</test>
+			<test logic="AND" value="systems/gyrocompass/heading-zero-return-rad">
+				systems/gyrocompass/on == 1
+				systems/gyrocompass/serviceable == 1
+				systems/gyrocompass/button-switch == 1
+			</test>
+			<output>systems/gyrocompass/heading-zero-input-rad</output>
+		</switch>
+
+		<!-- Proportional, Integrational and Derivative response. If kp=0, ki=1 and kd=0 then
+		 input rate of 1 increases the integrator output value of 1*input per second. -->
+
+		<pid name="calculations/gyrocompass/heading-zero-rad">
+			<input>systems/gyrocompass/heading-zero-input-rad</input>
+			<kp>0.0</kp>
+			<ki>1.0</ki>
+			<kd>0.0</kd>
+			<output>systems/gyrocompass/heading-zero-rad</output>
+		</pid>
+
+		<!-- Summar heading -->
+
+		<fcs_function name="calculations/gyrocompass/heading-resulted-rad">
+		<function>
+			<sum>
+				<property>attitude/heading-true-rad</property>
+				<product>
+					<value>-1.0</value>
+					<property>systems/gyrocompass/heading-zero-rad</property>
+				</product>
+			</sum>
+		</function>
+			<output>systems/gyrocompass/heading-resulted-rad</output>
+		</fcs_function>
+
+		<!-- If switched on then shown value stored -->
+
+		<switch name="calculations/gyrocompass/heading-stored-rad">
+			<default value="0"/>
+			<test logic="OR" value="systems/gyrocompass/heading-stored-rad">
+				systems/gyrocompass/on == 0
+				systems/gyrocompass/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/gyrocompass/heading-resulted-rad">
+				systems/gyrocompass/on == 1
+				systems/gyrocompass/serviceable == 1
+			</test>
+			<output>systems/gyrocompass/heading-stored-rad</output>
+		</switch>
+
+		<!-- If switched off or broken then stored value indicated -->
+
+		<switch name="calculations/gyrocompass/heading-indicated-rad">
+			<default value="0"/>
+			<test logic="OR" value="systems/gyrocompass/heading-stored-rad">
+				systems/gyrocompass/on == 0
+				systems/gyrocompass/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/gyrocompass/heading-resulted-rad">
+				systems/gyrocompass/on == 1
+				systems/gyrocompass/serviceable == 1
+			</test>
+			<output>systems/gyrocompass/heading-indicated-rad</output>
+		</switch>
+
+		<!-- Final output in degrees -->
+
+		<fcs_function name="calculations/heading-indicated-deg">
+		<function>
+			<product>
+				<property>systems/gyrocompass/heading-indicated-rad</property>
+				<value>57.295779</value><!--rad to deg 180/pi -->
+			</product>
+		</function>
+			<output>systems/gyrocompass/heading-indicated-deg</output>
+		</fcs_function>
+
+	</channel>
+
+</system>

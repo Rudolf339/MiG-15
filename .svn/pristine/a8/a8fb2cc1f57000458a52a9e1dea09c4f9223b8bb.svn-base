@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+
+<!--
+    *** If not stated otherwise, all units in this file are SI (kg,m,s,N) ***
+    
+    Engine thrust and is calculated here, while the other engine properties are still
+    managed by the built-in FGTurbine module configured in /Engines/VK-1.xml.
+    The difference between those two thrust values is then applied to the virtual
+    external force "thrust_correction" defined in MiG-15bis.xml.
+
+    You can observe the calculations by opening the property browser at
+    /fdm/jsbsim/calculations/engine/
+    
+    The aircraft performance is now closer to the data given in the literature:
+    * Ceiling altitude is lower now, somewhere around 17000m. According to [1], it should be 15500m,
+      so there's some more tuning to be done.
+    * The idle thrust is approximately 75kg at sea level [1].
+    * Flying at 350km/h with gear and flaps extended requires an engine RPM of about 8000,
+      as it is mentioned in the pilot training booklet [7].
+    * During final approach the engine RPM is now much higher, typically 7000.
+      This is coherent with [7], which advises the pilot to maintain a minimum RPM of 6000
+      on final approach - probably to keep up a good engine response to acceleration
+      (engine acceleration failure isn't simulated (yet)).
+    ____________________
+    Source [7]: "Fliegerfibel fuer die Flugzeuge MiG-15bis und MiG-17F, Teil 1, Steuertechnik",
+                a booklet for GDR army cadets, 1962.
+-->
+<system>
+
+  <channel name="engine_calculations">
+
+    <fcs_function>
+      <function name="/fdm/jsbsim/calculations/H_density">
+        <product>
+          <property>/fdm/jsbsim/atmosphere/density-altitude</property>
+          <value>0.3048</value>
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function>
+      <function name="/fdm/jsbsim/calculations/v_true-kph">
+        <product>
+          <property>/fdm/jsbsim/velocities/vtrue-kts</property>
+          <value>1.852</value>
+        </product>
+      </function>
+    </fcs_function>
+
+  </channel>
+
+  <channel name="engine_thrust">
+    <!--
+        The thrust calculation is based on two graphs shown in source [1] (see notes in MiG-15bis.xml).
+        Fig.83 shows thrust in 'kg' (=9.81 N) for an aircraft with zero speed at sea level,
+        depending on the engine RPM. The maximum thrust is 2700kg, so dividing the result by 2700
+        normalizes the data.
+        Fig.82 displays the thrust at maximum RPM depending on altitude and true airspeed (km/h).
+        Assuming that the thrust/RPM characteristic is sufficiently similar for all altitudes and
+        speeds, thrust can be derived by multiplying both tables.
+        When the aircraft accelerates, keeping a constant RPM and altitude, the thrust will slowly drop
+        to a minimum at around 600 km/h (because thrust depends on the difference in speed of exhaust
+        gas and surrounding air) and then starts increasing again (as the ram air pressure provides
+        additional energy). 
+    -->
+    <fcs_function>
+      <function name="/fdm/jsbsim/calculations/engine/thrust-kg">
+        <product>
+          <table name="/fdm/jsbsim/calculations/engine/max_thrust_at_zero_alt_and_speed-kg">
+            <independentVar>/engines/engine/rpm</independentVar>
+            <tableData> <!-- [1] Fig.83, values for RPM<7000 are guesses -->
+                200    0
+               1000   40
+               2700  100
+               3300  137
+               4000  200
+               5000  300
+               6000  430
+               6500  510
+               7000  590
+               7500  700
+               8000  820
+               8500  980
+               9000 1170
+               9500 1410
+              10000 1670
+              10500 1930
+              11000 2240
+              11560 2700
+            </tableData>
+          </table>
+          <value>0.0003703704</value> <!-- 1/2700 for normalization -->
+          <table name="/fdm/jsbsim/calculations/engine/max_thrust_due_to_alt_and_speed-kg">
+            <independentVar lookup="row">/fdm/jsbsim/calculations/v_true-kph</independentVar>
+            <independentVar lookup="column">/fdm/jsbsim/calculations/H_density</independentVar>
+            <tableData>
+              <!-- [1] Fig.82, values for v<200 and H>15000 are guesses -->
+                       0  5000 10000 15000 18000
+                 0  2700  1850  1120   500   100
+               100  2630  1780  1080   470    70
+               200  2560  1720  1050   450    50
+               300  2500  1680  1030   450    50
+               400  2450  1650  1020   450    50
+               500  2400  1620  1010   460    60
+               600  2370  1600  1010   470    70
+               700  2350  1610  1030   490    90
+               800  2360  1630  1050   500   100
+               900  2400  1670  1090   540   140
+              1000  2470  1730  1120   570   170
+              1100  2550  1810  1160   610   210
+              1200  2640  1900  1200   660   260
+            </tableData>
+          </table>
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function>
+      <function name="/fdm/jsbsim/calculations/engine/thrust">
+        <product>
+          <property>/fdm/jsbsim/calculations/engine/thrust-kg</property>
+          <value>9.80665</value> <!-- kg to N -->
+        </product>
+      </function>
+    </fcs_function>
+
+    <!-- converting the standard engine thrust to SI for comparison -->
+    <fcs_function>
+      <function name="/fdm/jsbsim/calculations/engine/thrust_according_to_FGTurbine">
+        <product>
+          <property>/engines/engine/thrust_lb</property>
+          <value>4.4482216</value> <!-- lbf to N -->
+        </product>
+      </function>
+    </fcs_function>
+
+    <!-- the difference of both values is the correction we need -->
+    <fcs_function>
+      <function name="/fdm/jsbsim/calculations/engine/thrust_correction">
+        <difference>
+          <property>/fdm/jsbsim/calculations/engine/thrust</property>
+          <property>/fdm/jsbsim/calculations/engine/thrust_according_to_FGTurbine</property>
+        </difference>
+      </function>
+    </fcs_function>
+
+    <!-- convert to lbf and feed it to the external force defined in MiG-15bis.xml -->
+    <fcs_function>
+      <function>
+        <product>
+          <property>/fdm/jsbsim/calculations/engine/thrust_correction</property>
+          <value>0.2248089</value> <!-- N to lbf -->
+        </product>
+      </function>
+      <output>/fdm/jsbsim/external_reactions/thrust_correction/magnitude</output>
+    </fcs_function>
+
+  </channel>
+
+  <channel name="engine_fuel_flow">
+
+    <fcs_function>
+      <function>
+        <product>
+          <property>/engines/engine/fuel-flow_pph</property>
+          <value>0.453592</value> <!-- lb/h to kg/h -->
+        </product>
+      </function>
+      <output>/fdm/jsbsim/fuel/fuel_flow_according_to_FGTurbine-kg-h</output>
+    </fcs_function>
+
+    <!--
+        P-Pnominal_ratio is the ratio of actual thrust vs nominal thrust (P/Pnominal),
+        needed as an input to Fig.97.
+        Nominal thrust is what the engine delivers at 11200 RPM,
+        which is approximately 88% of the max.thrust at 11560 RPM (Fig.83).
+        Assuming (again) that the thrust/RPM characteristic is sufficiently similar for
+        all altitudes and speeds, the maximum thrust at H=0,V=0 divided by 0.88*2700kg
+        equals the P/Pnominal ratio, valid for all altitudes and speeds.
+
+        Q-Qnominal_ratio is the ratio of actual fuel flow vs nominal fuel flow (at 11200 RPM)
+        according to [1] Fig.97. Qnominal depends on altitude and velocity as displayed by
+        [1] Fig.90.
+
+        Simulating the calculated fuel flow is done by /Systems/Fuelsystem.xml. 
+    -->
+    <fcs_function>
+      <function name="/fdm/jsbsim/fuel/P-Pnominal_ratio">
+        <quotient>
+          <property>/fdm/jsbsim/calculations/engine/max_thrust_at_zero_alt_and_speed-kg</property>
+          <value>2430</value> <!-- 0.90*2700 -->
+        </quotient>
+      </function>
+    </fcs_function>
+
+    <fcs_function>
+      <function name="/fdm/jsbsim/fuel/fuel_flow-kg-h">
+        <product>
+          <table name="/fdm/jsbsim/fuel/Q-Qnominal_ratio">
+            <independentVar>/fdm/jsbsim/fuel/P-Pnominal_ratio</independentVar>
+            <tableData> <!-- [1] Fig.97 -->
+              0.0  0.000
+              0.02 0.210
+              0.1  0.250
+              0.2  0.310
+              0.3  0.375
+              0.4  0.450
+              0.5  0.530
+              0.6  0.615
+              0.7  0.710
+              0.8  0.805
+              0.9  0.900
+              1.2  1.200
+            </tableData>
+          </table>
+          <table name="/fdm/jsbsim/fuel/Qnominal-kg-h">
+            <independentVar lookup="row">/fdm/jsbsim/calculations/v_true-kph</independentVar>
+            <independentVar lookup="column">/fdm/jsbsim/calculations/H_density</independentVar>
+            <tableData> <!-- [1] Fig.90 -->
+                       0  5000 10000 14000 15000
+                 0  2620  1750  1040   570   500
+               200  2710  1780  1050   590   510
+               400  2830  1825  1075   620   525
+               600  2950  1905  1125   660   560
+               800  3100  2015  1205   730   610
+              1000  3270  2160  1325   815   695
+              1200  3470  2330  1490   930   810
+              1400  3700  2550  1700  1100   980
+            </tableData>
+          </table>
+        </product>
+      </function>
+    </fcs_function>
+
+    <pure_gain name="/fdm/jsbsim/fuel/fuel_flow-kg-s">
+      <input>/fdm/jsbsim/fuel/fuel_flow-kg-h</input>
+      <gain>2.7777778e-4</gain>
+      <output>/engines/engine/fuel-flow_pph</output>
+    </pure_gain>
+
+    <integrator name="/fdm/jsbsim/fuel/fuel_consumed_kg">
+      <input>/fdm/jsbsim/fuel/fuel_flow-kg-s</input>
+      <c1>1</c1>
+    </integrator>
+
+  </channel>
+
+  <channel name="Engine_efficiency">
+
+    <fcs_function name="/fdm/jsbsim/fuel/consumption_l_per_km">
+      <function>
+        <quotient>
+          <property>/fdm/jsbsim/fuel/fuel_flow-kg-h</property>
+          <product>
+            <sum>
+              <product>
+                <property>/velocities/groundspeed-kt</property>
+                <value>1.852</value> <!-- convert from funny to sane unit -->
+              </product>
+              <value>1e-9</value> <!-- division by zero protection -->
+            </sum>
+            <value>0.83</value> <!-- fuel density -->
+          </product>
+        </quotient>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="/fdm/jsbsim/fuel/current_range-km">
+      <function>
+        <quotient>
+          <product>
+            <property>/consumables/fuel/total-fuel-kg</property>
+            <property>/velocities/groundspeed-kt</property>
+            <value>1.852</value>
+          </product>
+          <property>/fdm/jsbsim/fuel/fuel_flow-kg-h</property>
+        </quotient>
+      </function>
+    </fcs_function>
+
+  </channel>
+
+</system>

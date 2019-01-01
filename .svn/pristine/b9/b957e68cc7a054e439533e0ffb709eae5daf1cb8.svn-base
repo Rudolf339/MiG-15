@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!-- MiG-15bis left gear config file - Victor Slavutinsky -->
+
+<PropertyList>
+
+  <path>MiG-15bis-Gears-left-door-middle.ac</path>
+
+  <animation>
+    <type>spin</type>
+    <object-name>UC_MainL_DoorMB</object-name>
+    <object-name>UC_MainL_DoorMS</object-name>
+    <property>one</property>
+    <factor>50</factor>
+    <center>
+      <x-m>-0.645</x-m>
+      <y-m>-0.491</y-m>
+      <z-m>-0.052</z-m>
+    </center>
+    <axis>
+      <x>-0.1</x>
+      <y>1.0</y>
+      <z>-0.1</z>
+    </axis>
+  </animation>
+
+</PropertyList>

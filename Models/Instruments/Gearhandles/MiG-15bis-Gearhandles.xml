@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Gearhandles.ac</path> 
+
+  <!--
+
+<animation>
+<type>range</type>
+<min-m>0</min-m>
+<max-m>30</max-m>
+</animation>
+
+<animation>
+<type>material</type>
+<object-name>EG_LBOne</object-name>
+<object-name>EG_LBTwo</object-name>
+<object-name>EG_LBase</object-name>
+<object-name>EG_Lconnector</object-name>
+<object-name>EG_LHHDown</object-name>
+<object-name>EG_LHHUp</object-name>
+<object-name>EG_LHandle</object-name>
+<object-name>EG_RBOne</object-name>
+<object-name>EG_RBTwo</object-name>
+<object-name>EG_RBase</object-name>
+<object-name>EG_Rconnector</object-name>
+<object-name>EG_RHHDown</object-name>
+<object-name>EG_RHHUp</object-name>
+<object-name>EG_RHandle</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-inter</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EG_LHandle</object-name>
+    <object-name>EG_LBOne</object-name>
+    <object-name>EG_LConnector</object-name>
+    <object-name>EG_LBTwo</object-name>
+    <object-name>EG_LBase</object-name>
+    <property>fdm/jsbsim/systems/gearvalve/left-handle-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.5</ind><dep>0.0</dep></entry>
+      <entry><ind>1.0</ind><dep>30</dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>1.743</x1-m>
+      <y1-m>-0.359</y1-m>
+      <z1-m>0.186</z1-m>
+      <x2-m>1.728</x2-m>
+      <y2-m>-0.359</y2-m>
+      <z2-m>0.167</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EG_LHandle</object-name>
+    <object-name>EG_LConnector</object-name>
+    <object-name>EG_LBOne</object-name>
+    <property>fdm/jsbsim/systems/gearvalve/left-handle-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.5</ind><dep>-45</dep></entry>
+      <entry><ind>1.0</ind><dep>-30</dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>1.627</x1-m>
+      <y1-m>-0.293</y1-m>
+      <z1-m>0.284</z1-m>
+      <x2-m>1.610</x2-m>
+      <y2-m>-0.293</y2-m>
+      <z2-m>0.263</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EG_LHHUp</object-name>
+    <property>fdm/jsbsim/systems/gearvalve/left-handle-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.05</ind><dep>-14</dep></entry>
+      <entry><ind>0.1</ind><dep>-13</dep></entry>
+      <entry><ind>0.15</ind><dep>0.0</dep></entry>
+      <entry><ind>1</ind><dep>0.0</dep></entry>
+    </interpolation>
+    <axis> 
+      <x1-m>1.720</x1-m>
+      <y1-m>-0.305</y1-m>
+      <z1-m>0.273</z1-m>
+      <x2-m>1.704</x2-m>
+      <y2-m>-0.305</y2-m>
+      <z2-m>0.273</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EG_LHHDown</object-name>
+    <property>fdm/jsbsim/systems/gearvalve/left-handle-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.05</ind><dep>14</dep></entry>
+      <entry><ind>0.1</ind><dep>13</dep></entry>
+      <entry><ind>0.15</ind><dep>0.0</dep></entry>
+      <entry><ind>1</ind><dep>0.0</dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>1.720</x1-m>
+      <y1-m>-0.305</y1-m>
+      <z1-m>0.269</z1-m>
+      <x2-m>1.704</x2-m>
+      <y2-m>-0.305</y2-m>
+      <z2-m>0.269</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>EG_LHandle</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>fdm/jsbsim/systems/gearvalve/left-handle-input</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>EG_LHandle</object-name>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>fdm/jsbsim/systems/gearvalve/left-handle-input</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EG_RHandle</object-name>
+    <object-name>EG_RBOne</object-name>
+    <object-name>EG_RConnector</object-name>
+    <object-name>EG_RBTwo</object-name>
+    <object-name>EG_RBase</object-name>
+    <property>fdm/jsbsim/systems/gearvalve/right-handle-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.5</ind><dep>0.0</dep></entry>
+      <entry><ind>1.0</ind><dep>-30</dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>1.743</x1-m>
+      <y1-m>0.359</y1-m>
+      <z1-m>0.186</z1-m>
+      <x2-m>1.728</x2-m>
+      <y2-m>0.359</y2-m>
+      <z2-m>0.167</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EG_RHandle</object-name>
+    <object-name>EG_RConnector</object-name>
+    <object-name>EG_RBOne</object-name>
+    <property>fdm/jsbsim/systems/gearvalve/right-handle-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.5</ind><dep>45</dep></entry>
+      <entry><ind>1.0</ind><dep>30</dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>1.627</x1-m>
+      <y1-m>0.293</y1-m>
+      <z1-m>0.284</z1-m>
+      <x2-m>1.610</x2-m>
+      <y2-m>0.293</y2-m>
+      <z2-m>0.263</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EG_RHHUp</object-name>
+    <property>fdm/jsbsim/systems/gearvalve/right-handle-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.05</ind><dep>14</dep></entry>
+      <entry><ind>0.1</ind><dep>13</dep></entry>
+      <entry><ind>0.15</ind><dep>0.0</dep></entry>
+      <entry><ind>1</ind><dep>0.0</dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>1.720</x1-m>
+      <y1-m>0.305</y1-m>
+      <z1-m>0.273</z1-m>
+      <x2-m>1.704</x2-m>
+      <y2-m>0.305</y2-m>
+      <z2-m>0.273</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>EG_RHHDown</object-name>
+    <property>fdm/jsbsim/systems/gearvalve/right-handle-pos</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.05</ind><dep>-14</dep></entry>
+      <entry><ind>0.1</ind><dep>-13</dep></entry>
+      <entry><ind>0.15</ind><dep>0.0</dep></entry>
+      <entry><ind>1</ind><dep>0.0</dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>1.720</x1-m>
+      <y1-m>0.305</y1-m>
+      <z1-m>0.269</z1-m>
+      <x2-m>1.704</x2-m>
+      <y2-m>0.305</y2-m>
+      <z2-m>0.269</z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>EG_RHandle</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>fdm/jsbsim/systems/gearvalve/right-handle-input</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>EG_RHandle</object-name>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-assign</command>
+        <property>fdm/jsbsim/systems/gearvalve/right-handle-input</property>
+        <value>1</value>
+      </binding>
+    </action>
+  </animation>
+
+
+</PropertyList> 

@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+
+<!--
+	Radio altimeter. For the MiG-15bis, but can be used in every JSB craft.
+	Author: Slavutinsky Victor
+-->
+
+<system>
+
+	<fileheader>
+		<author> Slavutinsky Victor </author>
+		<filecreationdate> 2010-10-04 </filecreationdate>
+		<version>$Revision: 1.00 $</version>
+		<description> Radioaltimeter </description>
+	</fileheader>
+
+<!--	That must be aded to set file
+
+
+-->
+
+	<channel name="radioaltimeter">
+
+<!-- power -->
+
+		<switch name="calculations/radioaltimeter/power-allowed">
+			<default value="systems/radioaltimeter/power-command"/>
+			<test logic="AND" value="systems/radioaltimeter/power-input">
+				systems/radioaltimeter/serviceable eq 1
+			</test>
+			<output>systems/radioaltimeter/power-command</output>
+		</switch>
+
+		<kinematic name="calculations/radioaltimeter/power-pos">
+			<input>systems/radioaltimeter/power-command</input>
+			<traverse>
+			<setting>
+				<position>0</position>
+				<time>0</time>
+			</setting>
+			<setting>
+				<position>1</position>
+				<time>0.2</time>
+			</setting>
+			</traverse>
+			<output>systems/radioaltimeter/power-pos</output>
+		</kinematic>
+
+		<switch name="calculations/radioaltimeter/power-not-allowed">
+			<default value="systems/radioaltimeter/power-input"/>
+			<test logic="AND" value="systems/radioaltimeter/power-command">
+				systems/radioaltimeter/serviceable eq 0
+			</test>
+			<output>systems/radioaltimeter/power-input</output>
+		</switch>
+
+		<switch name="calculations/radioaltimeter/power-switch">
+			<default value="systems/radioaltimeter/power-switch"/>
+			<test logic="AND" value="1">
+				systems/radioaltimeter/power-pos ge 0.5
+			</test>
+			<test logic="AND" value="0">
+				systems/radioaltimeter/power-pos lt 0.5
+			</test>
+			<output>systems/radioaltimeter/power-switch</output>
+		</switch>
+
+<!-- diapazone -->
+
+		<switch name="calculations/radioaltimeter/diapazone-allowed">
+			<default value="systems/radioaltimeter/diapazone-command"/>
+			<test logic="AND" value="systems/radioaltimeter/diapazone-input">
+				systems/leftpanel/serviceable eq 1
+			</test>
+			<output>systems/radioaltimeter/diapazone-command</output>
+		</switch>
+
+		<kinematic name="calculations/radioaltimeter/diapazone-pos">
+			<input>systems/radioaltimeter/diapazone-command</input>
+			<traverse>
+			<setting>
+				<position>0</position>
+				<time>0</time>
+			</setting>
+			<setting>
+				<position>1</position>
+				<time>0.2</time>
+			</setting>
+			</traverse>
+			<output>systems/radioaltimeter/diapazone-pos</output>
+		</kinematic>
+
+		<switch name="calculations/radioaltimeter/diapazone-not-allowed">
+			<default value="systems/radioaltimeter/diapazone-input"/>
+			<test logic="AND" value="systems/radioaltimeter/diapazone-command">
+				systems/leftpanel/serviceable eq 0
+			</test>
+			<output>systems/radioaltimeter/diapazone-input</output>
+		</switch>
+
+		<switch name="calculations/radioaltimeter/diapazone-switch">
+			<default value="systems/radioaltimeter/diapazone-switch"/>
+			<test logic="AND" value="1">
+				systems/radioaltimeter/diapazone-pos ge 0.5
+			</test>
+			<test logic="AND" value="0">
+				systems/radioaltimeter/diapazone-pos lt 0.5
+			</test>
+			<output>systems/radioaltimeter/diapazone-switch</output>
+		</switch>
+
+		<fcs_function name="calculations/radioaltimeter/alt-feets-to-meters">
+		<function>
+			<product>
+				<property>position/h-agl-ft</property>
+				<value>0.3048</value>
+			</product>
+		</function>
+			<output>systems/radioaltimeter/alt-meters</output>
+		</fcs_function>
+
+		<switch name="calculations/radioaltimeter/diapazone-mod">
+			<default value="1"/>
+			<test logic="AND" value="1">
+				systems/radioaltimeter/diapazone-switch eq 0
+			</test>
+			<test logic="AND" value="10">
+				systems/radioaltimeter/diapazone-switch eq 1
+			</test>
+			<output>systems/radioaltimeter/diapazone-mod</output>
+		</switch>
+
+		<fcs_function name="calculations/radioaltimeter/alt-mod">
+		<function>
+			<quotient>
+				<property>systems/radioaltimeter/alt-meters</property>
+				<property>systems/radioaltimeter/diapazone-mod</property>
+			</quotient>
+		</function>
+			<output>systems/radioaltimeter/alt-mod</output>
+		</fcs_function>
+
+		<fcs_function name="calculations/radioaltimeter/pitch-distort-to-ninety">
+		<function>
+			<product>
+				<value>0.5</value>
+				<sin>
+					<abs>
+						<property>attitude/pitch-rad</property>
+					</abs>
+				</sin>
+				<quotient>
+					<value>3.14159</value>
+					<value>180.0</value>
+				</quotient>
+			</product>
+		</function>
+			<output>systems/radioaltimeter/pitch-distort-to-ninety</output>
+		</fcs_function>
+
+		<fcs_function name="calculations/radioaltimeter/pitch-distort-from-ninety">
+		<function>
+			<product>
+				<value>0.5</value>
+				<sum>
+					<value>1.0</value>
+					<sin>
+						<difference>
+						<abs>
+							<property>attitude/pitch-rad</property>
+						</abs>
+						<value>90.0</value>
+						</difference>
+					</sin>
+					<quotient>
+						<value>3.14159</value>
+						<value>180.0</value>
+					</quotient>
+				</sum>
+			</product>
+		</function>
+			<output>systems/radioaltimeter/pitch-distort-from-ninety</output>
+		</fcs_function>
+
+<!--90/180*pi -->
+		<switch name="calculations/radioaltimeter/pitch-distort">
+			<default value="systems/radioaltimeter/pitch-distort-to-ninety"/>
+			<test logic="AND" value="systems/radioaltimeter/pitch-distort-from-ninety">
+				attitude/pitch-rad ge 1.57079 
+			</test>
+			<output>systems/radioaltimeter/pitch-distort</output>
+		</switch>
+
+		<fcs_function name="calculations/radioaltimeter/roll-distort-to-ninety">
+		<function>
+			<product>
+				<value>0.5</value>
+				<sin>
+					<abs>
+						<property>attitude/roll-rad</property>
+					</abs>
+				</sin>
+				<quotient>
+					<value>3.14159</value>
+					<value>180.0</value>
+				</quotient>
+			</product>
+		</function>
+			<output>systems/radioaltimeter/roll-distort-to-ninety</output>
+		</fcs_function>
+
+		<fcs_function name="calculations/radioaltimeter/roll-distort-from-ninety">
+		<function>
+			<product>
+				<value>0.5</value>
+				<sum>
+					<value>1.0</value>
+					<sin>
+						<difference>
+						<abs>
+							<property>attitude/roll-rad</property>
+						</abs>
+						<value>90.0</value>
+						</difference>
+					</sin>
+					<quotient>
+						<value>3.14159</value>
+						<value>180.0</value>
+					</quotient>
+				</sum>
+			</product>
+		</function>
+			<output>systems/radioaltimeter/roll-distort-from-ninety</output>
+		</fcs_function>
+
+<!--90/180*pi -->
+		<switch name="calculations/radioaltimeter/roll-distort">
+			<default value="systems/radioaltimeter/roll-distort-to-ninety"/>
+			<test logic="AND" value="systems/radioaltimeter/roll-distort-from-ninety">
+				attitude/roll-rad ge 1.57079
+			</test>
+			<output>systems/radioaltimeter/roll-distort</output>
+		</switch>
+
+		<switch name="calculations/radioaltimeter/alt-distort">
+			<default value="systems/radioaltimeter/pitch-distort"/>
+			<test logic="AND" value="systems/radioaltimeter/roll-distort">
+				systems/radioaltimeter/roll-distort gt systems/radioaltimeter/pitch-distort
+			</test>
+			<output>systems/radioaltimeter/alt-distort</output>
+		</switch>
+
+		<fcs_function name="calculations/radioaltimeter/alt-distorted">
+		<function>
+			<product>
+				<sum>
+					<value>1.0</value>
+					<product>
+						<property>calculations/radioaltimeter/alt-distort</property>
+						<value>0.2</value>
+					</product>
+				</sum>
+				<property>calculations/radioaltimeter/alt-mod</property>
+			</product>
+		</function>
+			<output>systems/radioaltimeter/alt-distorted</output>
+		</fcs_function>
+
+		<switch name="calculations/radioaltimeter/alt-powered">
+			<default value="0"/>
+			<test logic="AND" value="systems/radioaltimeter/alt-distorted">
+				systems/radioaltimeter/on == 1
+				systems/radioaltimeter/power-switch == 1
+			</test>
+			<output>systems/radioaltimeter/alt-powered</output>
+		</switch>
+
+		<switch name="calculations/radioaltimeter/stored-alt">
+			<default value="0"/>
+			<test logic="OR" value="systems/radioaltimeter/stored-alt">
+				systems/radioaltimeter/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/radioaltimeter/alt-powered">
+				systems/radioaltimeter/serviceable == 1
+			</test>
+			<output>systems/radioaltimeter/stored-alt</output>
+		</switch>
+
+		<switch name="calculations/radioaltimeter/indicated-alt">
+			<default value="0"/>
+			<test logic="OR" value="systems/radioaltimeter/stored-alt">
+				systems/radioaltimeter/serviceable == 0
+			</test>
+			<test logic="AND" value="systems/radioaltimeter/alt-powered">
+				systems/radioaltimeter/serviceable == 1
+			</test>
+			<output>systems/radioaltimeter/indicated-alt</output>
+		</switch>
+
+		<switch name="calculations/radioaltimeter/lamp">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				systems/radioaltimeter/on == 1
+				systems/radioaltimeter/power-switch == 1
+				systems/radioaltimeter/serviceable == 1
+			</test>
+			<output>systems/radioaltimeter/lamp</output>
+		</switch>
+
+		<!-- Click-->
+
+		<switch name="calculations/radioaltimeter/click">
+			<default value="systems/sounds/click/on"/>
+			<test logic="AND" value="1">
+				systems/radioaltimeter/power-pos ge 0.25
+				systems/radioaltimeter/power-pos le 0.75
+				systems/sounds/click/on == 0
+			</test>
+			<test logic="AND" value="1">
+				systems/radioaltimeter/diapazone-pos ge 0.25
+				systems/radioaltimeter/diapazone-pos le 0.75
+				systems/sounds/click/on == 0
+			</test>
+			<output>systems/sounds/click/on</output>
+		</switch>
+
+	</channel>
+
+</system>

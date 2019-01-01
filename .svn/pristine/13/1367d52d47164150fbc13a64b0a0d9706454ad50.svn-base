@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>MiG-15bis-Manometer.ac</path> 
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>MAN_Glass</object-name>
+  </effect>
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>30</max-m>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>MAN_NeedleOne</object-name>
+    <object-name>MAN_NeedleTwo</object-name>
+    <object-name>MAN_Backplate</object-name>
+    <emission>
+      <factor-prop>systems/electrical-real/volts-norm</factor-prop>
+      <red>0.222</red>
+      <green>0.212</green>
+      <blue>0.212</blue>
+    </emission>
+  </animation>
+
+  <!--
+
+<animation>
+<type>material</type>
+<object-name>MAN_NeedleOne</object-name>
+<object-name>MAN_NeedleTwo</object-name>
+<object-name>MAN_Backplate</object-name>
+<object-name>MAN_Bezel</object-name>
+<emission>
+<factor-prop>systems/light/canopy-lamps-norm</factor-prop>
+<red>0.777</red>
+<green>0.700</green>
+<blue>0.700</blue>
+</emission>
+<condition>
+<equals>
+<property>systems/light/use-canopy-lamps</property>
+<value>1</value>
+</equals>
+</condition>
+</animation>
+
+  -->
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>MAN_NeedleOne</object-name>
+    <property>instrumentation/manometer/cabin-pressure</property>
+    <interpolation>
+      <entry><ind>29.6</ind><dep>18</dep></entry><!-- sea level -->
+      <entry><ind>26.4</ind><dep>36</dep></entry><!-- 1 km -->
+      <entry><ind>23.4</ind><dep>54</dep></entry><!-- 2 km -->
+      <entry><ind>20.7</ind><dep>72</dep></entry><!-- 3 km -->
+      <entry><ind>18.5</ind><dep>90</dep></entry><!-- 4 km -->
+      <entry><ind>16.0</ind><dep>108</dep></entry><!-- 5 km -->
+      <entry><ind>13.9</ind><dep>126</dep></entry><!-- 6 km -->
+      <entry><ind>12.12</ind><dep>144</dep></entry><!-- 7 km -->
+      <entry><ind>10.5</ind><dep>162</dep></entry><!-- 8 km -->
+      <entry><ind>0</ind><dep>162</dep></entry><!-- more -->
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>  
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>MAN_NeedleTwo</object-name>
+    <property>instrumentation/manometer/cabin-delta</property>
+    <interpolation>
+      <entry><ind>1.4</ind><dep>36</dep></entry>
+      <entry><ind>1.2</ind><dep>36</dep></entry>
+      <entry><ind>1.0</ind><dep>54</dep></entry>
+      <entry><ind>0.8</ind><dep>90</dep></entry>
+      <entry><ind>0.6</ind><dep>126</dep></entry>
+      <entry><ind>0.4</ind><dep>162</dep></entry>
+      <entry><ind>0</ind><dep>162</dep></entry><!-- more -->
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>  
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList> 

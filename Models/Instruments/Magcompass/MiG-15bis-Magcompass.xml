@@ -132,12 +132,25 @@
       <z>0</z>
     </axis>
   </animation>
-
+	
   <animation>
     <type>pick</type>
-    <object-name>MC_Down</object-name>
+    <object-name>MC_Vern</object-name>
     <action>
-      <button>0</button>
+      <button>3</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/magnetic-compass/offset</property>
+        <step>0.5</step>
+        <min>-30.0</min>
+        <max>30.0</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
       <repeatable>true</repeatable>
       <interval-sec>0.1</interval-sec>
       <binding>
@@ -149,24 +162,11 @@
         <wrap>false</wrap>
       </binding>
     </action>
-    <action>
-      <button>1</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/magnetic-compass/offset</property>
-        <step>-2</step>
-        <min>-30.0</min>
-        <max>30.0</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
   </animation>
 
   <animation>
     <type>pick</type>
-    <object-name>MC_Up</object-name>
+    <object-name>MC_Vern</object-name>
     <action>
       <button>0</button>
       <repeatable>true</repeatable>
@@ -187,7 +187,7 @@
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/magnetic-compass/offset</property>
-        <step>2</step>
+        <step>-0.5</step>
         <min>-30.0</min>
         <max>30.0</max>
         <wrap>false</wrap>

@@ -74,38 +74,7 @@
 
   <animation>
     <type>pick</type>
-    <object-name>BUC_Down</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/boostercontrol/control-input</property>
-        <step>-0.5</step>
-        <min>0</min>
-        <max>1</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-    <action>
-      <button>1</button>
-      <repeatable>false</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/boostercontrol/control-input</property>
-        <step>-0.5</step>
-        <min>0</min>
-        <max>1</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>BUC_Up</object-name>
+    <object-name>BUC_Handle</object-name>
     <action>
       <button>0</button>
       <repeatable>false</repeatable>
@@ -126,7 +95,7 @@
       <binding>
         <command>property-adjust</command>
         <property>fdm/jsbsim/systems/boostercontrol/control-input</property>
-        <step>0.5</step>
+        <step>-0.5</step>
         <min>0</min>
         <max>1</max>
         <wrap>false</wrap>

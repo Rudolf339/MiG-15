@@ -114,7 +114,7 @@
 
   <animation>
     <type>pick</type>
-    <object-name>Alt_Down</object-name>
+    <object-name>Alt_Vern</object-name>
     <action>
       <button>0</button>
       <repeatable>true</repeatable>
@@ -135,32 +135,27 @@
       <binding>
         <command>property-adjust</command>
         <property>fdm/jsbsim/systems/altimeter/offset-torr</property>
-        <step>-10</step>
+        <step>1</step>
         <min>-60.0</min>
         <max>60</max>
         <wrap>false</wrap>
       </binding>
     </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>Alt_Up</object-name>
-    <action>
-      <button>0</button>
+		<action>
+			<button>3</button>
       <repeatable>true</repeatable>
       <interval-sec>0.1</interval-sec>
       <binding>
         <command>property-adjust</command>
         <property>fdm/jsbsim/systems/altimeter/offset-torr</property>
-        <step>1</step>
+        <step>-1</step>
         <min>-60.0</min>
-        <max>60.0</max>
+        <max>60</max>
         <wrap>false</wrap>
       </binding>
-    </action>
-    <action>
-      <button>1</button>
+		</action>
+		<action>
+      <button>4</button>
       <repeatable>true</repeatable>
       <interval-sec>0.1</interval-sec>
       <binding>

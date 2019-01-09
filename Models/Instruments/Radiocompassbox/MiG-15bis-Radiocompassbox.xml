@@ -164,7 +164,7 @@ Change path and set offset as needed.
   -->
 
   <animation>
-    <type>rotate</type>
+    <type>knob</type>
     <object-name>RC_TSelector</object-name>
     <property>fdm/jsbsim/systems/radiocompass/type-pos</property>
     <interpolation>
@@ -183,32 +183,11 @@ Change path and set offset as needed.
       <y>0.0</y>
       <z>-1</z>
     </axis>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>RC_TSDown</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <interval-sec>0.1</interval-sec>
+		<action>
       <binding>
         <command>property-adjust</command>
         <property>fdm/jsbsim/systems/radiocompass/type-input</property>
-        <step>-1</step>
-        <min>0</min>
-        <max>3</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-    <action>
-      <button>1</button>
-      <repeatable>false</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/radiocompass/type-input</property>
-        <step>-1</step>
+        <factor>1</factor>
         <min>0</min>
         <max>3</max>
         <wrap>false</wrap>
@@ -217,38 +196,7 @@ Change path and set offset as needed.
   </animation>
 
   <animation>
-    <type>pick</type>
-    <object-name>RC_TSUp</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/radiocompass/type-input</property>
-        <step>1</step>
-        <min>0</min>
-        <max>3</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-    <action>
-      <button>1</button>
-      <repeatable>false</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/radiocompass/type-input</property>
-        <step>1</step>
-        <min>0</min>
-        <max>3</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>rotate</type>
+    <type>knob</type>
     <object-name>RC_FSelector</object-name>
     <property>fdm/jsbsim/systems/radiocompass/band-pos</property>
     <interpolation>
@@ -266,6 +214,16 @@ Change path and set offset as needed.
       <y>0.0</y>
       <z>-1</z>
     </axis>
+		<action>
+			<binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/band-input</property>
+        <factor>-1</factor>
+        <min>0</min>
+        <max>2</max>
+        <wrap>false</wrap>
+      </binding>
+		</action>
   </animation>
 
   <animation>
@@ -287,68 +245,6 @@ Change path and set offset as needed.
       <y>0.0</y>
       <z>1</z>
     </axis>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>RC_FSDown</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/radiocompass/band-input</property>
-        <step>-1</step>
-        <min>0</min>
-        <max>2</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-    <action>
-      <button>1</button>
-      <repeatable>false</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/radiocompass/band-input</property>
-        <step>-1</step>
-        <min>0</min>
-        <max>2</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>RC_FSUp</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/radiocompass/band-input</property>
-        <step>1</step>
-        <min>0</min>
-        <max>2</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-    <action>
-      <button>1</button>
-      <repeatable>false</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/radiocompass/band-input</property>
-        <step>1</step>
-        <min>0</min>
-        <max>2</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
   </animation>
 
   <animation>
@@ -470,10 +366,11 @@ Change path and set offset as needed.
 
   <animation>
     <type>knob</type>
-    <object-name>RC_FIVern</object-name>
+		<object-name>RC_FIVern</object-name>
 		<object-name>RC_FIVRod</object-name>
-		<object-name>RC_FIVBUp</object-name>
-    <object-name>RC_FIVBDown</object-name>
+		<object-name>RC_FIVBUp</object-name>	
+		<property>fdm/jsbsim/systems/radiocompass/frequency-vern</property>
+		<factor>1</factor>
 		<center>
       <x-m>0.148</x-m>
       <y-m>0.064</y-m>
@@ -488,12 +385,12 @@ Change path and set offset as needed.
 	    <binding>
         <command>property-adjust</command>
         <property>fdm/jsbsim/systems/radiocompass/frequency-vern</property>
-        <factor>1</factor>
+        <factor>-1</factor>
         <wrap>false</wrap>
       </binding>
     </action>
   </animation>
-
+	
   <animation>
     <type>rotate</type>
     <object-name>RC_RINeedle</object-name>
@@ -585,7 +482,7 @@ Change path and set offset as needed.
   </animation>
 
   <animation>
-    <type>rotate</type>
+    <type>knob</type>
     <object-name>RC_FVern</object-name>
     <property>fdm/jsbsim/systems/radiocompass/frame-speed</property>
     <interpolation>
@@ -601,74 +498,24 @@ Change path and set offset as needed.
       <x>0.0</x>
       <y>0.0</y>
       <z>-1.0</z>
-    </axis>
-  </animation>
+		</axis>
+		<action>
+      <binding>
+        <command>property-adjust</command>
+        <property>fdm/jsbsim/systems/radiocompass/frame-speed</property>
+				<factor>0.02</factor>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
 
-  <animation>
-    <type>pick</type>
-    <object-name>RC_FLeft</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/radiocompass/frame-speed</property>
-        <step>-0.02</step>
-        <min>-1</min>
-        <max>1</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-    <action>
-      <button>1</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/radiocompass/frame-speed</property>
-        <step>-0.02</step>
-        <min>-1</min>
-        <max>1</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>RC_FRight</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/radiocompass/frame-speed</property>
-        <step>0.02</step>
-        <min>-1</min>
-        <max>1</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-    <action>
-      <button>1</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>fdm/jsbsim/systems/radiocompass/frame-speed</property>
-        <step>0.02</step>
-        <min>-1</min>
-        <max>1</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
   </animation>
 
   <animation>
     <type>knob</type>
     <object-name>RC_BVern</object-name>
+		<property>fdm/jsbsim/systems/radiocompass/brightness</property>
     <interpolation>
       <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>1</ind><dep>360</dep></entry>
@@ -728,6 +575,8 @@ Change path and set offset as needed.
   <animation>
     <type>knob</type>
     <object-name>RC_TGVern</object-name>
+		<property>fdm/jsbsim/systems/radiocompass/telegraph-loudness</property>
+		<factor>1</factor>
 		<interpolation>
       <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>1</ind><dep>360</dep></entry>
@@ -757,6 +606,8 @@ Change path and set offset as needed.
   <animation>
     <type>knob</type>
     <object-name>RC_TLVern</object-name>
+		<property>fdm/jsbsim/systems/radiocompass/telephone-loudness</property>
+		<factor>1</factor>
     <interpolation>
       <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>1</ind><dep>360</dep></entry>

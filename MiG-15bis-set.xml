@@ -197,6 +197,10 @@ MiG-15bis simulation config.
         <name>Shift-L</name>
         <desc>Toggle auto-coordination</desc>
       </key>
+			<key>
+				<name>L</name>
+				<desc>Toggle Landing Light</desc>
+			</key>
 
       <line>
 Detailed documentation in /MiG-15/Documentation directory        
@@ -970,6 +974,14 @@ neccessary to accelerate the engine to at least 6500 RPM.
         </binding>
       </key>
 
+			<key n="108">
+				<name>l</name>
+				<desc>landing light</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>/controls/lighting/landing-lights</property>
+				</binding>
+			</key>
       <key n="113">
         <name>q</name>
         <desc>More aileron booster</desc>
@@ -1011,8 +1023,8 @@ neccessary to accelerate the engine to at least 6500 RPM.
           <script>MIG15BIS.bitswap("fdm/jsbsim/systems/fuelcontrol/control-input")</script>
         </binding>
       </key>
-
-    </keyboard>
+			
+			</keyboard>
   </input>
   
   <ai>
@@ -1087,6 +1099,9 @@ neccessary to accelerate the engine to at least 6500 RPM.
       <strobe-lights type="bool">0</strobe-lights>
       <taxi-lights type="bool">0</taxi-lights>
     </switches>
+		<lighting>
+			<landing-lights>0</landing-lights>
+		</lighting>
   </controls>
 
   <!-- FDM initialization -->
@@ -1739,9 +1754,15 @@ neccessary to accelerate the engine to at least 6500 RPM.
 		<damage>
 			<file>Aircraft/MiG-15/Nasal/damage.nas</file>
 		</damage>
+		<light-manager>
+			<file>Aircraft/MiG-15/Nasal/light-manager.nas</file>
+		</light-manager>
+		<acconfig>
+			<file>Aircraft/MiG-15/AircraftConfig/acconfig.nas</file>
+	  </acconfig>
   </nasal>
 
-  <orientation>
+	<orientation>
     <p-body type="double">0</p-body>
     <q-body type="double">0</q-body>
     <r-body type="double">0</r-body>

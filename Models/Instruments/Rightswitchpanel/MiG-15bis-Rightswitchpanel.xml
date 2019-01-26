@@ -255,7 +255,11 @@
       <interval-sec>0.1</interval-sec>
       <binding>
         <command>nasal</command>
-        <script>MIG15BIS.bitswap("fdm/jsbsim/systems/rightpanel/headlight-input")</script>
+				<script>
+					setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-r", 1);
+					setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-g", 1);
+					setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-b", 1);
+				</script>
       </binding>
     </action>
     <action>

@@ -135,7 +135,21 @@
 		</switch>
 	</connector>
 
+  <output>
+    <name>Landing Light Power</name>
+		<prop>/sim/rendering/als-secondary-lights/lightspot/lightspot-r</prop>
+		<prop>/sim/rendering/als-secondary-lights/lightspot/lightspot-g</prop>
+		<prop>/sim/rendering/als-secondary-lights/lightspot/lightspot-b</prop>
+  </output>
 
+	<connector>
+		<input>bus</input>
+		<output>Landing Light Power</output>
+		<!--
+		<switch>
+			<prop></prop>
+		</switch>-->
+	</connector>
 <!--
 
   <output>

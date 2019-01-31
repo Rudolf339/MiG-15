@@ -64,11 +64,20 @@ MiG-15bis simulation config.
       <path>/sim/view</path>
       <path>/sim/configuration</path>
       <path>/fdm/jsbsim/tanks</path>
-    </aircraft-data>
-    
-    <startup>
-      <splash-texture>Aircraft/MiG-15/MiG-15bis-splash.png</splash-texture>
-    </startup>
+		</aircraft-data>
+
+		<previews>
+			<preview>
+				<type>exterior</type>
+				<path>Preview/MiG-15bis-1.png</path>
+				<splash type="bool">true</splash>
+			</preview>
+			<preview>
+				<type>panel</type>
+				<path>Preview/MiG-15bis-2.png</path>
+				<splash type="bool">true</splash>
+			</preview>
+		</previews>
 
     <rating>
       <FDM type="int">4</FDM>
@@ -90,6 +99,25 @@ MiG-15bis simulation config.
       <tag>single-engine</tag>
       <tag>tricycle</tag>
     </tags>
+
+		<maintainers>
+			<maintainer n="0">
+				<name>Jüttner Domokos</name>
+				<email>juttner.domokos@gmail.com</email>
+			</maintainer>
+		</maintainers>
+
+		<authors>
+			<author n="0">
+				<name>Victor Slavutinsky</name>
+				<desc>FDM, models</desc>
+				<nick>Vitos</nick>
+			</author>
+			<author n="1">
+				<name>Jüttner Domokos</name>
+				<nick>Rudolf</nick>
+			</author>
+		</authors>
 
     <help>
       <title>MiG-15 bis</title>

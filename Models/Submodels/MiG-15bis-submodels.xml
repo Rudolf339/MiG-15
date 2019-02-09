@@ -46,6 +46,7 @@
     <life>5</life>
     <collision>true</collision>
     <impact>true</impact>
+		<submodel-path>Aircraft/MiG-15/Models/Submodels/N37-smoke.xml</submodel-path>
   </submodel>
 
   <submodel>
@@ -91,6 +92,7 @@
     <aero-stabilised>true</aero-stabilised>
     <collision>true</collision>
     <impact>true</impact>
+		<submodel-path>Aircraft/MiG-15/Models/Submodels/NS23-submodel.xml</submodel-path>
   </submodel>
 
   <submodel>
@@ -137,6 +139,7 @@
     <aero-stabilised>true</aero-stabilised>
     <collision>true</collision>
     <impact>true</impact>
+		<submodel-path>Aircraft/MiG-15/Models/Submodels/NS23-submodel.xml</submodel-path>
   </submodel>
 
   <submodel>
@@ -185,7 +188,7 @@
     <weight>50</weight>
     <buoyancy>0</buoyancy>
     <wind>false</wind>
-    <aero-stabilised>true</aero-stabilised>
+    <aero-stabilised>false</aero-stabilised>
     <!--		<contents>consumables/fuel/tank[2]</contents> -->
     <impact>true</impact>
     <!--		<impact-reports>ai/submodels/left-drop-tank-impact</impact-reports>  -->

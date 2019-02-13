@@ -70,7 +70,7 @@
   </submodel>
 
   <submodel>
-    <name>N-23 inner round</name>
+    <name>NS-23 inner round</name>
     <model>Aircraft/MiG-15/Models/Submodels/MiG-15bis-NS-23-round.xml</model>
     <trigger>ai/submodels/NS-23-I</trigger>
     <speed>2300</speed>
@@ -117,7 +117,7 @@
   </submodel>
 
   <submodel>
-    <name>N-23 outer round</name>
+    <name>NS-23 outer round</name>
     <model>Aircraft/MiG-15/Models/Submodels/MiG-15bis-NS-23-round.xml</model>
     <trigger>ai/submodels/NS-23-O</trigger>
     <speed>2300</speed>

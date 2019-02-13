@@ -1788,6 +1788,9 @@ neccessary to accelerate the engine to at least 6500 RPM.
 		<acconfig>
 			<file>Aircraft/MiG-15/AircraftConfig/acconfig.nas</file>
 	  </acconfig>
+		<payload>
+			<file>Aircraft/MiG-15/Nasal/payload.nas</file>
+		</payload>
   </nasal>
 
 	<orientation>

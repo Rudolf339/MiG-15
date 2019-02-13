@@ -125,13 +125,8 @@ start_up = func {
 clicksound = func
 {
   setprop("sounds/click/on", 1);
- # settimer(clickoff, getprop("/sim/frame-latency-max-ms")*0.004);
-  settimer(clickoff, 0.3);
-}
-
-clickoff = func
-{
   setprop("sounds/click/on", 0);
+
 }
 
 setprop("sounds/click/on", 0);

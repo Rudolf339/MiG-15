@@ -73,7 +73,7 @@ setlistener("/ai/models/model-impact", func {
 				}
 				if ( hit_timer == 0 ) {
 					hit_timer = 1;
-					settimer(func{hitmessage("NS-23");},1);
+					settimer(func{hitmessage("NR-23");},1);
 				}
 			}
 		}

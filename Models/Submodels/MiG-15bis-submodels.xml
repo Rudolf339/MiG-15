@@ -84,9 +84,9 @@
     <yaw-offset>0.0</yaw-offset>
     <pitch-offset>0.0</pitch-offset>
     <roll-offset>0.0</roll-offset>
-    <eda>0.0122</eda>
+    <eda>0.00136354</eda>
     <weight>0.386</weight> <!-- 175 grams -->
-    <cd>0.035</cd>
+    <cd>0.193</cd>
     <buoyancy>0</buoyancy>
     <wind>false</wind>
     <aero-stabilised>true</aero-stabilised>
@@ -131,9 +131,9 @@
     <yaw-offset>0.0</yaw-offset>
     <pitch-offset>0.0</pitch-offset>
     <roll-offset>0.0</roll-offset>
-    <eda>0.0122</eda>
+    <eda>0.193</eda>
     <weight>0.386</weight> <!-- 175 grams -->
-    <cd>0.035</cd>
+	<cd>0.00136354</cd>
     <buoyancy>0</buoyancy>
     <wind>false</wind>
     <aero-stabilised>true</aero-stabilised>

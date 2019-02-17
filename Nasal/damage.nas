@@ -24,7 +24,7 @@ var cannon_types = {
     " 7.62 hit":              0.005,# 7.62mm
     " 50 BMG hit":            0.015,# 12.7mm
     " S-5 rocket hit":        0.20, #55mm
-	" NS-23 hit:":            0.065,# 23mm
+	" NR-23 hit:":            0.065,# 23mm
 };
     
     

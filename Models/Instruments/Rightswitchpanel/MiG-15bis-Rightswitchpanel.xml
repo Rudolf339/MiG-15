@@ -227,7 +227,7 @@
   <animation>
     <type>rotate</type>
     <object-name>HL_Switch</object-name>
-    <property>fdm/jsbsim/systems/rightpanel/headlight-pos</property>
+		<property>/controls/lighting/landing-lights</property>
     <interpolation>
       <entry><ind>0.0</ind><dep>45.0</dep></entry>
       <entry><ind>1.0</ind><dep>-45.0</dep></entry>
@@ -253,15 +253,12 @@
       <button>0</button>
       <repeatable>false</repeatable>
       <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>nasal</command>
-				<script>
-					setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-r", 1);
-					setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-g", 1);
-					setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-b", 1);
-				</script>
+    	<binding>
+		  	<command>property-toggle</command>
+		  	<property>/controls/lighting/landing-lights</property>
       </binding>
-    </action>
+		</action>
+ 		<!--
     <action>
       <button>1</button>
       <repeatable>false</repeatable>
@@ -270,7 +267,8 @@
         <command>nasal</command>
         <script>MIG15BIS.bitswap("fdm/jsbsim/systems/rightpanel/headlight-input")</script>
       </binding>
-    </action>
+		</action>
+		-->
   </animation>
 
   <animation>

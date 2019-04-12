@@ -678,6 +678,10 @@ neccessary to accelerate the engine to at least 6500 RPM.
 
         <float n="16" alias="/instrumentation/oxygen-pressure-meter/oxygen-on"/>
 
+				<bool n="0" alias="/instrumentation/gci/picture"/>
+				<bool n="0" alias="/instrumentation/gci/bogeydope"/>
+				<bool n="0" alias="/instrumentation/gci/cutoff"/>
+				
       </generic>
     </multiplay>
 
@@ -1052,7 +1056,39 @@ neccessary to accelerate the engine to at least 6500 RPM.
         </binding>
       </key>
 			
-			</keyboard>
+			<key n="261">
+			<name>F5</name>
+			<repeatable type="bool">true</repeatable>
+			<desc>Request Picture</desc>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/gci/picture</property>
+				<value>1</value>
+			</binding>
+			</key>
+
+			<key n="262">
+				<name>F6</name>
+				<repeatable type="bool">true</repeatable>
+				<desc>Request Bogey Dope</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/instrumentation/gci/bogeydope</property>
+					<value>1</value>
+				</binding>
+			</key>
+
+			<key n="263">
+				<name>F7</name>
+				<repeatable type="bool">true</repeatable>
+				<desc>Request Cutoff</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/instrumentation/gci/cutoff</property>
+					<value>1</value>
+				</binding>
+			</key>
+		</keyboard>
   </input>
   
   <ai>
@@ -1791,6 +1827,9 @@ neccessary to accelerate the engine to at least 6500 RPM.
 		<payload>
 			<file>Aircraft/MiG-15/Nasal/payload.nas</file>
 		</payload>
+		<gci>
+			<file>Aircraft/MiG-15/Nasal/gci-listener.nas</file>
+		</gci>
   </nasal>
 
 	<orientation>

@@ -710,7 +710,7 @@ MiG_15bis_bombable.unload(rplayer);
     <object-name>UC_Nose_Tyre</object-name>
     <property>gear/gear[0]/steering-norm</property>
     <offset-deg>0</offset-deg>
-    <factor>-45</factor>
+    <factor>-360</factor>
     <center>
       <x-m>1.07</x-m>
       <y-m>0.0</y-m>

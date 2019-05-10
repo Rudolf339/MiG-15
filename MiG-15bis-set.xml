@@ -1139,7 +1139,7 @@ neccessary to accelerate the engine to at least 6500 RPM.
 
     <!-- Start with the Parking Brake on and gears extracted -->
     <gear>
-      <brake-parking type="double">0.0</brake-parking>
+      <brake-parking type="bool">false</brake-parking>
       <gear-down type="bool">1.0</gear-down>
     </gear>
 
@@ -1203,7 +1203,7 @@ neccessary to accelerate the engine to at least 6500 RPM.
           <random_1_treshold>2.0</random_1_treshold>
       </fuel>
       <gear>
-				<wheel-chocks type="int">0</wheel-chocks>
+				<wheel-chocks type="bool">false</wheel-chocks>
         <gear-cmd-norm type="int">1</gear-cmd-norm>
         <gear-cmd-norm-real type="int">1</gear-cmd-norm-real>
         <gear-pos-norm type="float">1</gear-pos-norm>

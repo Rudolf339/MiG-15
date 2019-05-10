@@ -182,6 +182,25 @@
       <stretch>true</stretch>
     </empty>
   </group>
+	<!--
+	<group>
+    <layout>hbox</layout>
+    <checkbox>
+      <live>true</live>
+			<property>/fdm/jsbsim/gear/wheel-chocks</property>
+      <binding>
+        <command>property-toggle</command>
+				<property>/fdm/jsbsim/wheel-chocks</property>
+      </binding>
+    </checkbox>
+    <text>
+      <label>Enable wheel-chocks</label>
+    </text>
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+  </group>
+-->
   <group>
     <layout>hbox</layout>
     <button>
@@ -192,5 +211,4 @@
       </binding>
     </button>
   </group>
-
 </PropertyList>

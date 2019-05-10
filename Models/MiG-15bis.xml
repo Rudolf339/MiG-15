@@ -1555,4 +1555,25 @@ MiG_15bis_bombable.unload(rplayer);
     <texture-prop>txt_19</texture-prop>
   </animation>
 
+	<model>
+		<path>/Aircraft/MiG-15/Models/Equipment/chocks.ac</path>
+		<offsets>
+			<x-m>0.12</x-m>
+			<y-m>0.00</y-m>
+			<z-m>0.00</z-m>
+			<pitch-deg>-2.8</pitch-deg>
+		</offsets>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>chock</object-name>
+		<condition>
+			<equals>
+				<property>/fdm/jsbsim/gear/wheel-chocks</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+
 </PropertyList>

@@ -710,7 +710,7 @@ MiG_15bis_bombable.unload(rplayer);
     <object-name>UC_Nose_Tyre</object-name>
     <property>gear/gear[0]/steering-norm</property>
     <offset-deg>0</offset-deg>
-    <factor>-45</factor>
+    <factor>-360</factor>
     <center>
       <x-m>1.07</x-m>
       <y-m>0.0</y-m>
@@ -1554,5 +1554,26 @@ MiG_15bis_bombable.unload(rplayer);
     <property-base>sim/model/livery</property-base>
     <texture-prop>txt_19</texture-prop>
   </animation>
+
+	<model>
+		<path>/Aircraft/MiG-15/Models/Equipment/chocks.ac</path>
+		<offsets>
+			<x-m>0.12</x-m>
+			<y-m>0.00</y-m>
+			<z-m>0.00</z-m>
+			<pitch-deg>-2.8</pitch-deg>
+		</offsets>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>chock</object-name>
+		<condition>
+			<equals>
+				<property>/fdm/jsbsim/gear/wheel-chocks</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
 
 </PropertyList>

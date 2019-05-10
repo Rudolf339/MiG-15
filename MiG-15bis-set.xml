@@ -678,6 +678,10 @@ neccessary to accelerate the engine to at least 6500 RPM.
 
         <float n="16" alias="/instrumentation/oxygen-pressure-meter/oxygen-on"/>
 
+				<bool n="0" alias="/instrumentation/gci/picture"/>
+				<bool n="1" alias="/instrumentation/gci/bogeydope"/>
+				<bool n="2" alias="/instrumentation/gci/cutoff"/>
+				
       </generic>
     </multiplay>
 
@@ -1052,7 +1056,39 @@ neccessary to accelerate the engine to at least 6500 RPM.
         </binding>
       </key>
 			
-			</keyboard>
+			<key n="261">
+			<name>F5</name>
+			<repeatable type="bool">true</repeatable>
+			<desc>Request Picture</desc>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/gci/picture</property>
+				<value>1</value>
+			</binding>
+			</key>
+
+			<key n="262">
+				<name>F6</name>
+				<repeatable type="bool">true</repeatable>
+				<desc>Request Bogey Dope</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/instrumentation/gci/bogeydope</property>
+					<value>1</value>
+				</binding>
+			</key>
+
+			<key n="263">
+				<name>F7</name>
+				<repeatable type="bool">true</repeatable>
+				<desc>Request Cutoff</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/instrumentation/gci/cutoff</property>
+					<value>1</value>
+				</binding>
+			</key>
+		</keyboard>
   </input>
   
   <ai>
@@ -1091,6 +1127,11 @@ neccessary to accelerate the engine to at least 6500 RPM.
     <posmonitor>
       <minimised type="bool">true</minimised>
     </posmonitor>
+		<gci>
+			<cutoff type="bool">false</cutoff>
+			<picture type="bool">false</picture>
+			<bogeydope type="bool">false</bogeydope>
+		</gci>
   </instrumentation>
 
   <!-- Pre-set/initialise some of the controls -->
@@ -1098,7 +1139,7 @@ neccessary to accelerate the engine to at least 6500 RPM.
 
     <!-- Start with the Parking Brake on and gears extracted -->
     <gear>
-      <brake-parking type="double">1.0</brake-parking>
+      <brake-parking type="bool">false</brake-parking>
       <gear-down type="bool">1.0</gear-down>
     </gear>
 
@@ -1136,6 +1177,7 @@ neccessary to accelerate the engine to at least 6500 RPM.
 
   <fdm>
     <jsbsim>
+			<override-fg-brake-properties type="bool">true</override-fg-brake-properties>
       <aero>
         <h-b_mac alias="/fdm/jsbsim/aero/h_b-mac-ft"></h-b_mac>
       </aero>
@@ -1161,6 +1203,7 @@ neccessary to accelerate the engine to at least 6500 RPM.
           <random_1_treshold>2.0</random_1_treshold>
       </fuel>
       <gear>
+				<wheel-chocks type="bool">false</wheel-chocks>
         <gear-cmd-norm type="int">1</gear-cmd-norm>
         <gear-cmd-norm-real type="int">1</gear-cmd-norm-real>
         <gear-pos-norm type="float">1</gear-pos-norm>
@@ -1791,6 +1834,9 @@ neccessary to accelerate the engine to at least 6500 RPM.
 		<payload>
 			<file>Aircraft/MiG-15/Nasal/payload.nas</file>
 		</payload>
+		<gci>
+			<file>Aircraft/MiG-15/Nasal/gci-listener.nas</file>
+		</gci>
   </nasal>
 
 	<orientation>

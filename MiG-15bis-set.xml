@@ -631,9 +631,42 @@ neccessary to accelerate the engine to at least 6500 RPM.
             </binding>
           </item>
           <item n="7">
-            <label>---------------------</label>
+            <label>Ground Services</label>
+            <binding>
+							<condition>
+								<equals>
+									<property>/fdm/jsbsim/gear/wow</property>
+									<value>true</value>
+								</equals>
+								<less-than>
+									<property>/velocities/groundspeed-kt</property>
+									<value>1</value>
+								</less-than>
+							</condition>
+              <command>dialog-show</command>
+              <dialog-name>ground_services</dialog-name>
+            </binding>
+						<binding>
+							<condition>
+								<or>
+									<equals>
+										<property>/fdm/jsbsim/gear/wow</property>
+										<value>false</value>
+									</equals>
+									<greater-than>
+										<property>/velocities/groundspeed-kt</property>
+										<value>1</value>
+									</greater-than>
+								</or>
+							</condition>
+							<command>nasal</command>
+							<script>screen.log.write("You must be on ground and stationary to do this.", 1, 1, 1)</script>
+						</binding>
           </item>
           <item n="8">
+            <label>---------------------</label>
+          </item>
+          <item n="9">
             <label>Toggle monospace font</label>
             <binding>
               <command>property-toggle</command>

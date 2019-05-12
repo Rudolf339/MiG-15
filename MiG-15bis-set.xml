@@ -1236,7 +1236,7 @@ neccessary to accelerate the engine to at least 6500 RPM.
           <random_1_treshold>2.0</random_1_treshold>
       </fuel>
       <gear>
-				<wheel-chocks type="bool">false</wheel-chocks>
+				<wheel-chocks type="bool">true</wheel-chocks>
         <gear-cmd-norm type="int">1</gear-cmd-norm>
         <gear-cmd-norm-real type="int">1</gear-cmd-norm-real>
         <gear-pos-norm type="float">1</gear-pos-norm>

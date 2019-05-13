@@ -13,51 +13,59 @@
 		</pure_gain>
 
 	</channel>
-
+	<!--
 	<channel name="Parking Brakes" execrate="40">
 	        
-		<pure_gain name="rubbish/left-brake-cmd-norm">
+		<pure_gain name="systems/brakes/left-input">
 			<input>/controls/gear/brake-left</input>
-			<output>fcs/left-brake-cmd-norm</output>
+			<gain>1</gain>
 		</pure_gain>
         
-		<pure_gain name="rubbish/right-brake-cmd-norm">
+		<pure_gain name="systems/brakes/right-input">
 			<input>/controls/gear/brake-right</input>
-			<output>fcs/right-brake-cmd-norm</output>
+			<gain>1</gain>
 		</pure_gain>
     
   </channel>
-
+-->
 	<channel name="differential brakes">	
 
-		<fcs_function name="system/brake/brake-right">
+		<fcs_function name="systems/brakes/brake-right">
 			<function>
 				<max>
-					<product>
-						<abs>
-							<min>
-								<property>fcs/rudder-pos-norm</property>
-								<value>0</value>
-							</min>
-						</abs>
+					<difference>
 						<property>/controls/gear/brake-right</property>
-					</product>
+						<product>
+							<property>/controls/gear/brake-right</property>
+							<abs>
+								<max>
+									<property>fcs/rudder-pos-norm</property>
+									<value>0</value>
+								</max>
+							</abs>
+						</product>
+					</difference>
 					<property>gear/unit[1]/chocks/force-norm</property>
 				</max>
 			</function>
 			<output>fcs/right-brake-cmd-norm</output>
 		</fcs_function>
 
-		<fcs_function name="system/brake/brake-left">
+		<fcs_function name="systems/brakes/brake-left">
 			<function>
 				<max>
-					<product>
-						<max>
-							<property>fcs/rudder-pos-norm</property>
-							<value>0</value>
-						</max>
+					<difference>
 						<property>/controls/gear/brake-left</property>
-					</product>
+						<product>
+							<property>/controls/gear/brake-left</property>
+							<abs>
+								<min>
+									<property>fcs/rudder-pos-norm</property>
+									<value>0</value>
+								</min>
+							</abs>
+						</product>
+					</difference>
 					<property>gear/unit[2]/chocks/force-norm</property>
 				</max>
 			</function>

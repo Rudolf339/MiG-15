@@ -447,10 +447,11 @@
 			<output>systems/stick/park-brake-angle-deg</output>
 		</fcs_function>
 
+		<!-- workaround to disable parking brake animation -->
 		<switch name="calculations/stick/brake-angle-deg">
 			<default value="systems/stick/brake-middle-angle-deg"/>
 			<test logic="AND" value="systems/stick/park-brake-angle-deg">
-				/controls/gear/brake-parking gt 0
+				/controls/gear/brake-parking gt 2
 			</test>
 			<output>systems/stick/brake-angle-deg</output>
 		</switch>

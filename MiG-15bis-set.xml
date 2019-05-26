@@ -1870,6 +1870,9 @@ neccessary to accelerate the engine to at least 6500 RPM.
 		<gci>
 			<file>Aircraft/MiG-15/Nasal/gci-listener.nas</file>
 		</gci>
+		<gunsight>
+			<file>Aircraft/MiG-15/Nasal/gunsight.nas</file>
+		</gunsight>
   </nasal>
 
 	<orientation>

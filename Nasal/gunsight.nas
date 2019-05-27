@@ -11,9 +11,9 @@ var pipper = reticle.createGroup();
 
 var test = pipper.createChild("text", "testing")
 	.setTranslation(500, 500)
-	.setAlignment("left-center")
+	.setAlignment("center-center")
 	.setFont("LiberationFonts/LiberationSans-Regular.ttf")
-	.setFontSize(14, 1.2)
+	.setFontSize(64, 1.2)
 	.setColor(1, 0, 0)
 	.setText("Text comes here");
 

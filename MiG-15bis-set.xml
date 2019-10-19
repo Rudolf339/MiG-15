@@ -478,6 +478,12 @@ neccessary to accelerate the engine to at least 6500 RPM.
       <show_gunsight archive="y" type="bool">true</show_gunsight>
       <show_Magcompass archive="y" type="bool">true</show_Magcompass>
       <show_stick archive="y" type="bool">true</show_stick>
+	  <pushback>
+		  <kp type="double">100</kp>
+		  <ki type="double">25</ki>
+		  <kd type="double">0</kd>
+		  <position-norm type="double">0</position-norm>
+	  </pushback>
     </model>
 
     <configuration>
@@ -677,6 +683,14 @@ neccessary to accelerate the engine to at least 6500 RPM.
               <script>MIG15BIS.gui_update(getprop("/sim/configuration/monospace_font_option"))</script>
             </binding>
           </item>
+		  <item>
+			  <label>Pushback</label>
+			  <name>pushback</name>
+			  <binding>
+				  <command>dialog-show</command>
+				  <dialog-name>pushback</dialog-name>
+			  </binding>
+		  </item>
         </menu>
       </default>
     </menubar>

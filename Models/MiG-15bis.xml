@@ -710,7 +710,7 @@ MiG_15bis_bombable.unload(rplayer);
     <object-name>UC_Nose_Tyre</object-name>
     <property>gear/gear[0]/steering-norm</property>
     <offset-deg>0</offset-deg>
-    <factor>-360</factor>
+    <factor>-180</factor>
     <center>
       <x-m>1.07</x-m>
       <y-m>0.0</y-m>
@@ -1576,4 +1576,13 @@ MiG_15bis_bombable.unload(rplayer);
 		</condition>
 	</animation>
 
+	<model>
+		<name>pushback</name>
+		<path>/Models/Airport/Pushback/Forklift.xml</path>
+		<offsets>
+			<x-m>0.9</x-m>
+			<y-m>0</y-m>
+			<z-m>-1.45</z-m>
+		</offsets>
+	</model>
 </PropertyList>
